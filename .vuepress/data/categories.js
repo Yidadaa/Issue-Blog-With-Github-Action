@@ -1,5 +1,5 @@
 export default {
-  data: ['日记', '编程', '小记', '算法'].map(v => {
+  data: ['日记', '编程', '小记', '算法', '其他'].map(v => {
     let count = parseInt(Math.random() * 10 + 5)
     return {
       name: v,
