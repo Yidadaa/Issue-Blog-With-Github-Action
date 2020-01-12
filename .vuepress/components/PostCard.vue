@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <a href="/posts/xavier">
+    <a href="/posts/2018.html">
       <div class="card-header">
         <div class="card-date">{{ date }}</div>
         <div class="dot"></div>
@@ -34,6 +34,9 @@ primary-color = #EA350B
   margin-bottom 40px
   line-height 1.6
 
+  a
+    color black
+
   .card-header
     opacity .5
     display flex
@@ -52,7 +55,7 @@ primary-color = #EA350B
     font-hei()
 
   .card-content
-    font-size 14px
+    font-size 16zpx
     font-hei()
 
 .card:hover

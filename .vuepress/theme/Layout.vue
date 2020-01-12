@@ -71,8 +71,6 @@ export default {
   margin-top 100px
 
   .posts
-    box-shadow -2px -1px 10px rgba(0, 0, 0, 0.1)
-    padding 30px
     box-sizing border-box
 
   .side
