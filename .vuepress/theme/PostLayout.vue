@@ -14,8 +14,20 @@
     <div class="post-content">
       <Content />
     </div>
+
+    <Vssue title="Vssue Demo" :issueId="id" />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      id: 17
+    }
+  }
+}
+</script>
 
 <style lang="stylus">
 @import "../styles/fonts.styl"
@@ -75,7 +87,7 @@ blockquote
   margin 1rem 0
   padding 5px 10px
   background #eee
-  
+
   & > p
     margin 0
     font-fang-song()
@@ -183,6 +195,29 @@ img
 
     .author
       margin-right 10px
+
+// comment
+.vssue
+  font-hei()
+  margin-top 100px
+  padding 0
+
+  .vssue-pagination-per-page,
+  .vssue-header-powered-by,
+  .vssue-pagination-page
+    display none
+
+  .vssue-new-comment
+    border 0
+
+  .vssue-current-user
+    line-height 2.5
+
+  .vssue-button-submit-comment:not(:disabled):hover
+    background-color #eee
+
+  p
+    font-hei()
 
 @media print
   .title
