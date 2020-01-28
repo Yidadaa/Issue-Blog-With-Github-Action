@@ -11,7 +11,9 @@
       <div class="date">2019 年 9 月 20 日</div>
     </div>
 
-    <Content />
+    <div class="post-content">
+      <Content />
+    </div>
   </div>
 </template>
 

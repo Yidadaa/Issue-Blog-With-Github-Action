@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "markdown-it-katex": "^2.0.3"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.2.0"
+  }
+}

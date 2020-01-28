@@ -2,7 +2,7 @@
   <div class="page">
     <Header />
     <div class="banner">
-      <Content/>
+      <div class="slogan">有逻辑的灵魂，<br>才能写出有温度的代码。</div>
     </div>
     <div class="content">
       <div class="posts">
