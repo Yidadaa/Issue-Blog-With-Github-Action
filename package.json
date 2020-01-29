@@ -2,9 +2,7 @@
   "dependencies": {
     "@vssue/api-github-v4": "^1.4.0",
     "@vssue/vuepress-plugin-vssue": "^1.4.2",
-    "markdown-it-katex": "^2.0.3"
-  },
-  "devDependencies": {
-    "@vuepress/plugin-medium-zoom": "^1.2.0"
+    "markdown-it-katex": "^2.0.3",
+    "medium-zoom": "^1.0.5"
   }
 }

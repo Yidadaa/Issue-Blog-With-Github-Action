@@ -7,24 +7,31 @@
     </div>
 
     <div class="info">
-      <div class="author">张义飞</div>
-      <div class="date">2019 年 9 月 20 日</div>
+      <div class="author">{{$frontmatter.author}}</div>
+      <div class="date">{{$frontmatter.date}}</div>
     </div>
 
     <div class="post-content">
       <Content />
     </div>
 
-    <Vssue title="Vssue Demo" :issueId="id" />
+    <Vssue title="Vssue Demo" :issueId="$frontmatter.id" />
   </div>
 </template>
 
 <script>
+import mediumZoom from 'medium-zoom'
+
 export default {
   data() {
     return {
-      id: 17
+      zoom: null
     }
+  },
+
+  mounted() {
+    console.log(this.$page)
+    this.zoom = mediumZoom('p img')
   }
 }
 </script>
@@ -42,7 +49,7 @@ accentColor = red
   margin-top 120px
   color #333
   font-weight bold
-  font-size 50px
+  font-size 40px
   position relative
   text-align center
   max-width 80%
@@ -60,6 +67,9 @@ accentColor = red
   font-size 55px
   color #eee
   right -60px
+
+.post-content
+  word-break break-word
 
 a
   font-weight 500
@@ -219,7 +229,22 @@ img
   p
     font-hei()
 
+@media screen and (max-width 576px)
+  p
+    font-hei() // use font-hei on mobile devices
+
+  .post-title
+    max-width 100%
+    overflow  hidden
+
+  .katex-display
+    overflow-x scroll
+    overflow-y hidden
+
 @media print
+  .page
+    width 100%
+
   .title
     margin-top 30%
     font-kai()

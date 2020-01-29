@@ -3,7 +3,7 @@ const mk = require("markdown-it-katex");
 module.exports = {
   title: "YiFei Zhang 的个人网站",
   description: "在这里了解我的一切，Have Fun!",
-  host: "127.0.0.1",
+  host: "0.0.0.0",
   head: [
     [
       "link",
@@ -20,20 +20,21 @@ module.exports = {
       }
     ]
   ],
-  plugins: {
-    // "@vuepress/medium-zoom": {
-    //   selector: ".post-content img"
-    // },
-    "@vssue/vuepress-plugin-vssue": {
-      platform: "github-v4",
+  plugins: [
+    [
+      "@vssue/vuepress-plugin-vssue",
+      {
+        platform: "github-v4",
 
-      // 其他的 Vssue 配置
-      owner: "Yidadaa",
-      repo: "Yidadaa.github.io",
-      clientId: "2783a4b752f56c0ed912",
-      clientSecret: "c8d9116fcade901567ff34aa1fb09216731683a3"
-    }
-  },
+        // 其他的 Vssue 配置
+        owner: "Yidadaa",
+        repo: "Yidadaa.github.io",
+        clientId: "2783a4b752f56c0ed912",
+        clientSecret: "c8d9116fcade901567ff34aa1fb09216731683a3"
+      }
+    ],
+    "@vuepress/last-updated"
+  ],
   markdown: {
     extendMarkdown: md => {
       md.use(mk);
