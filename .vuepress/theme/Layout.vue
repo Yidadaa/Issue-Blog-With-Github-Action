@@ -56,7 +56,7 @@ export default {
   margin-top 120px
   color #aaa
   font-weight bold
-  font-size 48px
+  font-size 40px
   position relative
 
   .colors
@@ -92,10 +92,10 @@ export default {
 .banner:before
   content '{{'
   position absolute
-  font-size 100px
+  font-size 80px
   color rgba(0, 0, 0, 0.1)
   left -100px
-  top 10px
+  top 5px
 
 .content
   width 100%

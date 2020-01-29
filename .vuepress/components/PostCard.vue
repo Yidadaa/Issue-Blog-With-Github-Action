@@ -28,7 +28,7 @@ export default {
 <style lang="stylus" scoped>
 @import "../styles/fonts.styl"
 
-primary-color = #EA350B
+primary-color = darken(red, 20)
 
 .card
   margin-bottom 40px
@@ -38,36 +38,32 @@ primary-color = #EA350B
     color black
 
   .card-header
-    opacity .5
     display flex
     align-content center
-    font-size 14px
+    font-size 12px
     font-weight bold
 
     .card-tag
       color primary-color
 
   .card-title
-    font-size 20px
+    font-size 18px
     font-weight bold
     line-height 2
     color #363134
     font-hei()
 
   .card-content
-    font-size 16zpx
+    font-size 14px
     font-hei()
 
 .card:hover
   cursor pointer
-  color primary-color
-  .dot
-    background primary-color
 
 .dot
   width 4px
   height 4px
   border-radius 20px
   background black
-  margin 8px 10px
+  margin 7px 10px
 </style>

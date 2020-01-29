@@ -23,7 +23,7 @@
 @import '../styles/fonts.styl'
 
 .header-wrap
-  background #eee
+  border-bottom 1px solid rgba(0, 0, 0, 0.05)
 
 .header
   display flex
@@ -38,7 +38,7 @@
       color black
 
     .nav
-      font-size 18px
+      font-size 16px
       margin-top 10px
       color darken(red, 20)
 
@@ -61,8 +61,8 @@
       border 1px solid #666
       padding 5px 20px
       font-kai()
-      font-size 18px
-      height 22px
+      font-size 16px
+      height 18px
       transition all ease .3s
       border-radius 100px
 
@@ -79,10 +79,10 @@
 
 @media screen and (min-width 576px)
   .search-bar
-    width 180px
+    width 140px
 
   .search-bar:focus
-    width 200px
+    width 160px
 
 @media screen and (max-width 576px)
   .header
@@ -101,5 +101,9 @@
   .search-bar
     width 100%
     text-align center
+
+@media print
+  .header-wrap
+    border 0
 
 </style>

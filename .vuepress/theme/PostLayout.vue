@@ -76,6 +76,9 @@ accentColor = red
 .post-content
   word-break break-word
 
+  .katex-display
+    font-size 14px
+
 a
   font-weight 500
   color $accentColor
@@ -233,6 +236,7 @@ img
 
   p
     font-hei()
+
 
 @media screen and (max-width 576px)
   p
