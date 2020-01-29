@@ -1,8 +1,14 @@
 <template>
+<div>
+  <Header />
   <div class="page">
-    <Header />
     <div class="banner">
-      <div class="slogan">有逻辑的灵魂，<br>才能写出有温度的代码。</div>
+      <div class="slogan">有逻辑的灵魂，<br>造就有温度的编码。</div>
+      <div class="colors">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+      </div>
     </div>
     <div class="content">
       <div class="posts">
@@ -20,6 +26,8 @@
       </div>
     </div>
   </div>
+  <Footer />
+</div>
 </template>
 
 <script>
@@ -36,32 +44,58 @@ export default {
   },
 
   mounted () {
-    console.log('hello')
-    window.onmousemove = e => {
-      const content = document.querySelector('.content')
-      const pos = content.getBoundingClientRect()
-      const { pageX, pageY } = e
-      console.log(pageX, pageY)
-    }
   }
 }
 </script>
 
 <style lang="stylus">
+@import "../styles/fonts.styl"
 
 .banner
+  font-hei()
   margin-top 120px
-  color #333
+  color #aaa
   font-weight bold
-  font-size 50px
+  font-size 48px
   position relative
+
+  .colors
+    width 200px
+    position absolute
+    right 0
+    top 40%
+
+    .color
+      position absolute
+      height 50px
+      width 100px
+      filter blur(50px)
+
+    colors = (#66f5b2 #e298dc #f03757)
+    n = 3
+    h_n = (n + n % 2) / 2
+    for i in (1..n)
+      .color:nth-child({i})
+        background colors[i - 1]
+        left (i - h_n) * 40px
+        top (i - h_n) * 20px
+        animation fly 5s + i * 3s ease infinite alternate-reverse
+
+@keyframes fly
+  0%
+    transform translate(0px, 0px) rotateZ(0deg)
+  50%
+    transform translate(50px, -50px) rotateZ(360deg)
+  100%
+    transform translate(-50px, 50px) rotateZ(0deg)
 
 .banner:before
   content '{{'
   position absolute
   font-size 100px
-  color #eee
+  color rgba(0, 0, 0, 0.1)
   left -100px
+  top 10px
 
 .content
   width 100%
@@ -91,4 +125,23 @@ export default {
     border-bottom-right-radius 10px
     border-top 0
 
+@media screen and (max-width 576px)
+  .banner
+    font-size 32px
+    text-align center
+
+  .content
+    flex-wrap wrap
+    flex-direction column-reverse
+
+    .side
+      width 100%
+      padding 0
+      margin 0
+
+      .side-category
+        padding 10px
+
+      .side-bag
+        // display none
 </style>

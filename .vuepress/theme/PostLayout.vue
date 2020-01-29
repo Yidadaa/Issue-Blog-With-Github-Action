@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
-    <Header />
-
+<div>
+  <Header />
+  <div class="page post-page">
     <div class="title">
       <div class="post-title">{{$page.title}}</div>
     </div>
@@ -17,6 +17,8 @@
 
     <Vssue title="Vssue Demo" :issueId="$frontmatter.id" />
   </div>
+  <Footer />
+</div>
 </template>
 
 <script>
@@ -40,6 +42,9 @@ export default {
 @import "../styles/fonts.styl"
 
 accentColor = red
+
+.post-page
+  margin-bottom 50px
 
 .title
   display flex
