@@ -180,6 +180,13 @@ code
 p, ul, ol
   line-height 1.7
 
+li.task-list-item
+  list-style none
+  display flex
+
+  input[type^=checkbox]
+    margin 7px 9px 0 -18px
+
 hr
   border 0
   border-top 1px solid $borderColor

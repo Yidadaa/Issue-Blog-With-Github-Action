@@ -1,4 +1,5 @@
 const mk = require("markdown-it-katex");
+const ck = require("markdown-it-task-checkbox")
 
 module.exports = {
   title: "YiFei Zhang 的个人网站",
@@ -44,6 +45,7 @@ module.exports = {
   markdown: {
     extendMarkdown: md => {
       md.use(mk);
+      md.use(ck);
     }
   }
 };
