@@ -1,17 +1,23 @@
 const mk = require("markdown-it-katex");
 const ck = require("markdown-it-task-checkbox")
 
+const vssueConfig = {
+  owner: 'Yidadaa',
+  repo: 'Yidadaa.github.io',
+  clientId: "2783a4b752f56c0ed912",
+  clientSecret: "c8d9116fcade901567ff34aa1fb09216731683a3"
+}
+
 module.exports = {
+  repoConfig: {
+    repo: vssueConfig.repo,
+    owner: vssueConfig.owner,
+    pushBranch: 'master',
+    email: 'yidadaa@qq.com'
+  },
   title: "YiFei Zhang 的个人网站",
   description: "在这里了解我的一切，Have Fun!",
   host: "0.0.0.0",
-  nav: [{
-    name: '首页',
-    link: '/'
-  }, {
-    name: 'Github',
-    link: 'https://github.com/Yidadaa'
-  }],
   head: [
     [
       "link",
@@ -33,12 +39,7 @@ module.exports = {
       "@vssue/vuepress-plugin-vssue",
       {
         platform: "github-v4",
-
-        // 其他的 Vssue 配置
-        owner: "Yidadaa",
-        repo: "Yidadaa.github.io",
-        clientId: "2783a4b752f56c0ed912",
-        clientSecret: "c8d9116fcade901567ff34aa1fb09216731683a3"
+        ...vssueConfig
       }
     ]
   ],

@@ -18,12 +18,16 @@
 </template>
 
 <script>
-import { nav } from '../config'
-
 export default {
   data() {
     return {
-      nav
+      nav: [{
+        name: '首页',
+        link: '/'
+      }, {
+        name: 'Github',
+        link: 'https://github.com/Yidadaa'
+      }]
     }
   }
 }

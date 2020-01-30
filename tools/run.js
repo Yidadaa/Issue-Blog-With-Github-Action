@@ -1,9 +1,9 @@
 const github = require('@actions/github')
 const fs = require('fs')
 const path = require('path')
+const { repoConfig } = require('../src/.vuepress/config')
 
-const owner = 'Yidadaa'
-const repo = 'Yidadaa.github.io'
+const { owner, repo } = repoConfig
 const issueFile = path.resolve(__dirname, './issues.json')
 const cateFile = path.resolve(__dirname, './cates.json')
 
@@ -58,7 +58,7 @@ function formatDocument(rawData) {
     fs.writeFile(path.resolve(postPath, `./${issue.number}.md`), markdownText, () => {})
   })
 
-  log('[Post] Issues haev been write to md files.')
+  log('[Post] Issues have been written to md files.')
 }
 
 /**
@@ -104,31 +104,31 @@ function processCategory(rawData) {
 async function download() {
   const tools = new github.GitHub(token)
 
-  log('Requesting Issues')
+  log('[Download] Requesting Issues')
   try {
     const data = await tools.issues.listForRepo({
       owner, repo
     })
 
-    log('Writing Issues Data')
+    log('[Download] Writing Issues Data')
     const rawData = JSON.stringify(data)
     fs.writeFileSync(issueFile, rawData)
-    log('Done')
+    log('[Download] Done')
   } catch (error) {
     log(error)
     return
   }
 
-  log('Requesting Milestones')
+  log('[Download] Requesting Milestones')
   try {
     const cates = await tools.issues.listMilestonesForRepo({
       owner, repo
     })
 
-    log('Writing Milestones Data')
+    log('[Download] Writing Milestones Data')
     const mData = JSON.stringify(cates)
     fs.writeFileSync(cateFile, mData)
-    log('Done')
+    log('[Download] Done')
   } catch (error) {
     log(error)
     return
@@ -148,7 +148,7 @@ function writeHomePageReadMe(issues, milestones) {
 
   const postsData = processPost(issues)
   const mData = processCategory(milestones)
-  log('Writing data to ReadMe')
+  log('[Writing] Writing data to ReadMe')
 
   const readMeMeta = JSON.stringify({
     slogan,
@@ -186,7 +186,7 @@ function writeHomePageReadMe(issues, milestones) {
     }
   })
 
-  log('Writing Categories')
+  log('[Writing] Writing Categories')
   // write new files
   milestones.forEach(m => {
     const issueData = processPost(m.issues)
