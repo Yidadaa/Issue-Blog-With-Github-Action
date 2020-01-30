@@ -17,6 +17,7 @@ module.exports = {
   },
   title: "YiFei Zhang 的个人网站",
   description: "在这里了解我的一切，Have Fun!",
+  customDomain: 'blog.simplenaive.cn',
   host: "0.0.0.0",
   head: [
     [

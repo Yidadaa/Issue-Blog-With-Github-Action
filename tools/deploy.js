@@ -1,6 +1,7 @@
 const Git = require('simple-git')
 const path = require('path')
-const { repoConfig } = require('../src/.vuepress/config')
+const fs = require('fs')
+const { repoConfig, customDomain } = require('../src/.vuepress/config')
 
 const { owner, repo, email, pushBranch } = repoConfig
 
@@ -20,6 +21,9 @@ async function main() {
   const distPath = path.resolve(__dirname, '../dist')
   const git = Git(distPath)
   const nowStr = new Date().toLocaleString()
+
+  // write CNAME
+  fs.writeFile(path.resolve(distPath, 'CNAME'), customDomain, () => console.log('[Host] on ' + customDomain))
 
   const remote = `https://${actor}:${token}@github.com/Yidadaa/${repo}.git`
 
