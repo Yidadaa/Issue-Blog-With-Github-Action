@@ -1,2 +1,1 @@
-欢迎，  
-在这里，了解我的一切  
+# A static blog pushlish platform hosted on Github Issues.
