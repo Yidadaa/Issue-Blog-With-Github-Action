@@ -119,8 +119,8 @@ export default {
   .side
     box-sizing border-box
     min-width 240px
-    padding 0 10px
-    margin-left 10px;
+    padding-left 10px
+    margin-left 10px
 
   .side-category
     padding 0 20px

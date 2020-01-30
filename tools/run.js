@@ -1,10 +1,20 @@
 const github = require('@actions/github')
-const { token } = require('./config')
 const fs = require('fs')
 const path = require('path')
 
 const owner = 'Yidadaa'
 const repo = 'Yidadaa.github.io'
+const issueFile = path.resolve(__dirname, './issues.json')
+const cateFile = path.resolve(__dirname, './cates.json')
+
+let token = null
+if (process.env.NODE_ENV == 'local') {
+  token = require('./config').token
+} else if (process.env.NODE_ENV == 'action') {
+  token = process.env.GITHUB_TOKEN
+} else {
+  throw error("Wrong Enviorment Params!")
+}
 
 /**
  * Make a log.
@@ -35,7 +45,6 @@ function formatDocument(rawData) {
   log(`[Summary] ${data.length} issues`)
 
   const postPath = path.resolve(__dirname, '../src/posts')
-  const dataPath = path.resolve(__dirname, '../src/.vuepress/data')
 
   // process post file
   data.forEach((issue, i) => {
@@ -103,7 +112,7 @@ async function download() {
 
     log('Writing Issues Data')
     const rawData = JSON.stringify(data)
-    fs.writeFileSync('./issues.json', rawData)
+    fs.writeFileSync(issueFile, rawData)
     log('Done')
   } catch (error) {
     log(error)
@@ -118,7 +127,7 @@ async function download() {
 
     log('Writing Milestones Data')
     const mData = JSON.stringify(cates)
-    fs.writeFileSync('./cates.json', mData)
+    fs.writeFileSync(cateFile, mData)
     log('Done')
   } catch (error) {
     log(error)
@@ -139,7 +148,7 @@ function writeHomePageReadMe(issues, milestones) {
 
   const postsData = processPost(issues)
   const mData = processCategory(milestones)
-  log('[Writing data to ReadMe]')
+  log('Writing data to ReadMe')
 
   const readMeMeta = JSON.stringify({
     slogan,
@@ -177,7 +186,7 @@ function writeHomePageReadMe(issues, milestones) {
     }
   })
 
-  log('[Writing Categories]')
+  log('Writing Categories')
   // write new files
   milestones.forEach(m => {
     const issueData = processPost(m.issues)
@@ -195,11 +204,15 @@ function writeHomePageReadMe(issues, milestones) {
 }
 
 async function saveToFile() {
-  const pData = JSON.parse(fs.readFileSync('./issues.json'))
-  const mData = JSON.parse(fs.readFileSync('./cates.json'))
+  const pData = JSON.parse(fs.readFileSync(issueFile))
+  const mData = JSON.parse(fs.readFileSync(cateFile))
+  formatDocument(pData.data)
   writeHomePageReadMe(pData.data, mData.data)
 }
 
-// download()
+async function main() {
+  await download()
+  await saveToFile()
+}
 
-saveToFile()
+main()

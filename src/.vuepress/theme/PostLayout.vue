@@ -164,9 +164,13 @@ a.header-anchor
 code, kbd, .line-number
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
+pre
+  border 1px solid #000
+
 pre > code
   background transparent
   padding 0
+  margin 0
 
 pre, code
   font-size 14px
