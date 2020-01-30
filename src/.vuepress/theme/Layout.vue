@@ -24,7 +24,7 @@
         <div class="side-category">
           <Category v-for="(category, index) in categories" v-bind:key="index" 
             v-bind:name="category.name" v-bind:count="category.count"
-            v-bind:desc="category.desc"/>
+            v-bind:desc="category.desc" v-bind:link="category.link"/>
         </div>
         <div class="side-bag"></div>
       </div>
@@ -45,7 +45,14 @@ export default {
 
   mounted () {
     this.posts = this.$frontmatter.posts
-    this.categories = this.$frontmatter.categories
+
+    const count = this.$frontmatter.categories.reduce((pre, cur) => pre + cur.count, 0)
+    this.categories = [{
+      name: '总览',
+      count,
+      desc: `共发布了 ${count} 篇文章。`,
+      link: `/`
+    }].concat(this.$frontmatter.categories)
   }
 }
 </script>
@@ -97,7 +104,7 @@ export default {
   font-size 80px
   color rgba(0, 0, 0, 0.1)
   left -100px
-  top 5px
+  top 8px
 
 .content
   width 100%

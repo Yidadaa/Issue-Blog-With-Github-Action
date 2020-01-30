@@ -1,1 +1,1 @@
-export default { data: [{"name":"编程","count":8,"desc":"提高编程姿势水平。"},{"name":"小记","count":6,"desc":"一些没什么卵用的人生经验。"},{"name":"笔记","count":2,"desc":"学习笔记，备忘用"}] }
+export default { data: [{"name":"编程","count":8,"desc":"提高编程姿势水平。","link":"/categories/编程"},{"name":"小记","count":6,"desc":"一些没什么卵用的人生经验。","link":"/categories/小记"},{"name":"笔记","count":2,"desc":"学习笔记，备忘用","link":"/categories/笔记"}] }

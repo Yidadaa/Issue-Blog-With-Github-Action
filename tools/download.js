@@ -31,7 +31,7 @@ function fmtDate(date) {
  * @param {Object} rawData raw request data object.
  */
 function formatDocument(rawData) {
-  const { data } = rawData
+  const data = rawData
   log(`[Summary] ${data.length} issues`)
 
   const postPath = path.resolve(__dirname, '../src/posts')
@@ -49,6 +49,14 @@ function formatDocument(rawData) {
     fs.writeFile(path.resolve(postPath, `./${issue.number}.md`), markdownText, () => {})
   })
 
+  log('[Post] Issues haev been write to md files.')
+}
+
+/**
+ * Process post data.
+ * @param {Array} data 
+ */
+function processPost(data) {
   // process post summary
   const postsData = data.map(issue => {
     return {
@@ -59,17 +67,16 @@ function formatDocument(rawData) {
       number: issue.number
     }
   })
-  postRawData = `export default { data: ${JSON.stringify(postsData)} }`
-  log('[Writing Summary Data]')
-  fs.writeFile(path.resolve(dataPath, './posts.js'), postRawData, () => {})
+
+  return postsData
 }
 
 /**
- * Write category data to file.
- * @param {Object} rawData raw request data of milestones
+ * Process category data.
+ * @param {Array} rawData raw request data of milestones
  */
 function processCategory(rawData) {
-  const { data } = rawData
+  const data = rawData
 
   const dataPath = path.resolve(__dirname, '../src/.vuepress/data')
 
@@ -77,16 +84,15 @@ function processCategory(rawData) {
     return {
       name: m.title,
       count: m.open_issues,
-      desc: m.description
+      desc: m.description,
+      link: `/categories/${m.title}`
     }
   })
 
-  const mRawData = `export default { data: ${JSON.stringify(mData)} }`
-  log('[Writing Category Data]')
-  fs.writeFile(path.resolve(dataPath, './categories.js'), mRawData, () => {})
+  return mData
 }
 
-async function run() {
+async function download() {
   const tools = new github.GitHub(token)
 
   log('Requesting Issues')
@@ -120,6 +126,80 @@ async function run() {
   }
 }
 
-// run()
-// fs.readFile('./issues.json', (err, data) => formatDocument(JSON.parse(data)))
-fs.readFile('./cates.json', (err, data) => processCategory(JSON.parse(data)))
+/**
+ * Write data to home page read me.
+ * @param {Array} issues issue list
+ * @param {Array} milestones milestone list
+ */
+function writeHomePageReadMe(issues, milestones) {
+  const slogan = {
+    main: '有逻辑的灵魂，',
+    sub: '造就有温度的编码。'
+  }
+
+  const postsData = processPost(issues)
+  const mData = processCategory(milestones)
+  log('[Writing data to ReadMe]')
+
+  const readMeMeta = JSON.stringify({
+    slogan,
+    posts: postsData,
+    categories: mData
+  })
+  const readMeText = `---\n${readMeMeta}\n---`
+  const readmePath = path.resolve(__dirname, '../src')
+  fs.writeFile(path.resolve(readmePath, './README.md'), readMeText, () => {})
+
+  // group issues by milestone
+  let issuesGounpByMs = {}
+  issues.forEach(issue => {
+    if (!issue.milestone) return
+    const { number } = issue.milestone
+    if (!issuesGounpByMs[number]) issuesGounpByMs[number] = []
+    issuesGounpByMs[number].push(issue)
+  })
+
+  // merge issues to milestones
+  milestones = milestones.map(m => {
+    return {
+      ...m,
+      issues: issuesGounpByMs[m.number] || []
+    }
+  })
+
+  // write milestones
+  const mPath = path.resolve(__dirname, '../src/categories')
+  const files = fs.readdirSync(mPath)
+  // delete old files
+  files.forEach(filename => {
+    if (filename.endsWith('md')) {
+      fs.unlinkSync(path.resolve(mPath, filename), () => {})
+    }
+  })
+
+  log('[Writing Categories]')
+  // write new files
+  milestones.forEach(m => {
+    const issueData = processPost(m.issues)
+    const mRawData = {
+      slogan: {
+        main: m.title,
+        sub: m.description
+      },
+      posts: issueData,
+      categories: mData
+    }
+    const mText = ['---', JSON.stringify(mRawData), '---'].join('\n')
+    fs.writeFile(path.resolve(mPath, `${m.title}.md`), mText, () => {})
+  })
+}
+
+async function saveToFile() {
+  const pData = JSON.parse(fs.readFileSync('./issues.json'))
+  const mData = JSON.parse(fs.readFileSync('./cates.json'))
+  writeHomePageReadMe(pData.data, mData.data)
+}
+
+// download()
+
+saveToFile()

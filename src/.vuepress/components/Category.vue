@@ -1,11 +1,13 @@
 <template>
-  <div class="category">
-    <div class="category-header">
-      <div class="category-name">{{ name }}</div>
-      <div class="category-count">{{ count }}</div>
+  <a :href="link">
+    <div class="category">
+      <div class="category-header">
+        <div class="category-name">{{ name }}</div>
+        <div class="category-count">{{ count }}</div>
+      </div>
+      <div class="category-desc">{{ desc }}</div>
     </div>
-    <div class="category-desc">{{ desc }}</div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -15,7 +17,8 @@ export default {
   props: {
     name: String,
     count: Number,
-    desc: String
+    desc: String,
+    link: String
   }
 }
 </script>
@@ -37,6 +40,7 @@ export default {
   transition all ease .15s
   font-weight bold
   overflow hidden
+  color #000
 
   .category-header
     display flex
@@ -61,7 +65,6 @@ export default {
     opacity 0.3
 
 .category:hover
-  cursor pointer
   transform translateY(-10px)
   .category-desc
     opacity 1

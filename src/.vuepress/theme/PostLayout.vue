@@ -207,16 +207,16 @@ img
   display block
   border 1px solid rgba(0, 0, 0, 0.1)
 
-@media screen 
+@media screen
   .info
     display flex
     justify-content center
     align-content center
-    margin 60px
+    margin 30px 0 60px 0
     font-fang-song()
 
     .author
-      margin-right 10px
+      margin-right 14px
 
 // comment
 .vssue
@@ -254,6 +254,10 @@ img
   .katex-display
     overflow-x scroll
     overflow-y hidden
+
+  .info
+    font-hei()
+    font-size 14px
 
 @media print
   .page
