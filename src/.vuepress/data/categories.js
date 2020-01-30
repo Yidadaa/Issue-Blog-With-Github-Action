@@ -1,10 +1,1 @@
-export default {
-  data: ['日记', '编程', '小记', '算法', '其他'].map(v => {
-    let count = parseInt(Math.random() * 10 + 5)
-    return {
-      name: v,
-      count,
-      desc: `这里存放了 ${count} 篇 ${v}`
-    }
-  })
-}
+export default { data: [{"name":"编程","count":8,"desc":"提高编程姿势水平。"},{"name":"小记","count":6,"desc":"一些没什么卵用的人生经验。"},{"name":"笔记","count":2,"desc":"学习笔记，备忘用"}] }

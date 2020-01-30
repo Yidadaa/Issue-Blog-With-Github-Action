@@ -4,5 +4,12 @@
     "@vssue/vuepress-plugin-vssue": "^1.4.2",
     "markdown-it-katex": "^2.0.3",
     "medium-zoom": "^1.0.5"
+  },
+  "devDependencies": {
+    "@actions/github": "^2.1.0"
+  },
+  "scripts": {
+    "dev": "vuepress dev ./src",
+    "build": "vuepress build ./src --dest ./dist"
   }
 }

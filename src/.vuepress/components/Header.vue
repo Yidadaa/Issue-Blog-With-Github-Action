@@ -7,9 +7,7 @@
           <div class="line">原是情人的月亮，不比秋冬是诗人的月亮</div>
         </div>
         <div class="nav">
-          <a href="/" class="nav-item">首页</a>
-          <a href="/" class="nav-item">分类</a>
-          <a href="/" class="nav-item">项目</a>
+          <a :href="link.link" class="nav-item" v-for="(link, index) in nav">{{link.name}}</a>
         </div>
       </div>
       <div class="right search">
@@ -18,6 +16,18 @@
     </div>
   </div>
 </template>
+
+<script>
+import { nav } from '../config'
+
+export default {
+  data() {
+    return {
+      nav
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 @import '../styles/fonts.styl'

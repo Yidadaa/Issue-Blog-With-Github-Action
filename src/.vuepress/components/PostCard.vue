@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <a href="/posts/2018.html">
+    <a v-bind:href="'/posts/' + number + '.html'">
       <div class="card-header">
         <div class="card-date">{{ date }}</div>
         <div class="dot"></div>
@@ -20,7 +20,8 @@ export default {
     title: String,
     desc: String,
     tag: String,
-    date: String
+    date: String,
+    number: Number
   }
 }
 </script>

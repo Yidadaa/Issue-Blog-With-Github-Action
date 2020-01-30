@@ -3,7 +3,10 @@
   <Header />
   <div class="page">
     <div class="banner">
-      <div class="slogan">有逻辑的灵魂，<br>造就有温度的编码。</div>
+      <div class="slogan">
+        <div>{{$frontmatter.slogan.main}}</div>
+        <div>{{$frontmatter.slogan.sub}}</div>
+      </div>
       <div class="colors">
         <div class="color"></div>
         <div class="color"></div>
@@ -14,7 +17,8 @@
       <div class="posts">
         <PostCard v-for="(post, index) in posts" v-bind:key="index"
           v-bind:title="post.title" v-bind:desc="post.desc"
-          v-bind:tag="post.tag" v-bind:date="post.date"/>
+          v-bind:tag="post.tag" v-bind:date="post.date"
+          v-bind:number="post.number"/>
       </div>
       <div class="side">
         <div class="side-category">
@@ -31,19 +35,17 @@
 </template>
 
 <script>
-import posts from '../data/posts'
-import categories from '../data/categories'
-
 export default {
   data () {
-    console.log(posts, categories)
     return {
-      posts: posts.data,
-      categories: categories.data
+      posts: [],
+      categories: []
     }
   },
 
   mounted () {
+    this.posts = this.$frontmatter.posts
+    this.categories = this.$frontmatter.categories
   }
 }
 </script>

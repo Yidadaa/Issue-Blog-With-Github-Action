@@ -41,7 +41,7 @@ export default {
 <style lang="stylus">
 @import "../styles/fonts.styl"
 
-accentColor = red
+$mainColor = darken(red, 20)
 
 .post-page
   margin-bottom 50px
@@ -54,7 +54,7 @@ accentColor = red
   margin-top 120px
   color #333
   font-weight bold
-  font-size 40px
+  font-size 30px
   position relative
   text-align center
   max-width 80%
@@ -76,17 +76,17 @@ accentColor = red
 .post-content
   word-break break-word
 
-  .katex-display
-    font-size 14px
+  .katex
+    font-size 16px
 
 a
   font-weight 500
-  color $accentColor
+  color $mainColor
   text-decoration none
 
 p a code
   font-weight 400
-  color $accentColor
+  color $mainColor
 
 p
   font-song()
@@ -139,13 +139,12 @@ h1, h2, h3, h4, h5, h6
     opacity: 1
 
 h1
-  font-size 2.2rem
+  font-size 2.0rem
   display none
 
 h2
-  font-size 1.65rem
+  font-size 1.45rem
   padding-bottom .3rem
-  border-bottom 1px solid $borderColor
 
 h3
   font-size 1.35rem
@@ -167,10 +166,15 @@ code, kbd, .line-number
 
 pre > code
   background transparent
+  padding 0
+
+pre, code
+  font-size 14px
 
 code
   background #eee
-  padding 2px 10px
+  padding 2px 4px
+  margin 0 2px
   border-radius 4px
 
 p, ul, ol
@@ -244,7 +248,8 @@ img
 
   .post-title
     max-width 100%
-    overflow  hidden
+    overflow hidden
+    font-size 26px
 
   .katex-display
     overflow-x scroll
@@ -274,5 +279,8 @@ img
 
   code
     word-break break-all
+
+  pre
+    page-break-inside avoid
 
 </style>

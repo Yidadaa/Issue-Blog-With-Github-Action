@@ -4,6 +4,13 @@ module.exports = {
   title: "YiFei Zhang 的个人网站",
   description: "在这里了解我的一切，Have Fun!",
   host: "0.0.0.0",
+  nav: [{
+    name: '首页',
+    link: '/'
+  }, {
+    name: 'Github',
+    link: 'https://github.com/Yidadaa'
+  }],
   head: [
     [
       "link",
