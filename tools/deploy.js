@@ -27,6 +27,8 @@ async function main() {
 
   const remote = `https://${actor}:${token}@github.com/Yidadaa/${repo}.git`
 
+  console.log(`[Remote] ${remote}`)
+
   git.init()
     .addConfig('user.name', owner)
     .addConfig('user.email', email)
