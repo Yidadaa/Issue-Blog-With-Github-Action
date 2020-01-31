@@ -51,6 +51,14 @@ module.exports = {
         rel: "stylesheet",
         href: "https://cdn.bootcss.com/KaTeX/0.5.1/katex.min.css"
       }
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicons/icon.png"
+      }
     ]
   ],
   plugins: [
@@ -60,7 +68,8 @@ module.exports = {
         platform: "github-v4",
         ...vssueConfig
       }
-    ]
+    ],
+    ['@vuepress/search']
   ],
   markdown: {
     extendMarkdown: md => {

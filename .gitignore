@@ -4,7 +4,6 @@ dist
 package-lock.json
 config.js
 
-**/posts/*.md
 cates.json
 issues.json
 

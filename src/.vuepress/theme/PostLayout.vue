@@ -110,9 +110,10 @@ blockquote
     margin 0
     font-fang-song()
 
-ul, ol
-  padding-left 1.2em
-  font-fang-song()
+.post-content
+  ul, ol
+    padding-left 1.2em
+    font-fang-song()
 
 strong
   font-weight 600
