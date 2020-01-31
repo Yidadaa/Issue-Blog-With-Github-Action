@@ -68,8 +68,7 @@ module.exports = {
         platform: "github-v4",
         ...vssueConfig
       }
-    ],
-    ['@vuepress/search']
+    ]
   ],
   markdown: {
     extendMarkdown: md => {
