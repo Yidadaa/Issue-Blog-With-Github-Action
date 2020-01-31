@@ -58,7 +58,7 @@ export default {
       query: '',
       focused: false,
       focusIndex: 0,
-      placeholder: undefined
+      placeholder: ''
     }
   },
 

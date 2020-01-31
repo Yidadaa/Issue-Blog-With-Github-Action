@@ -15,7 +15,8 @@
     </div>
     <div class="content">
       <div class="posts">
-        <LoadingCard v-if="!posts.length"/>
+        <LoadingCard />
+        <!-- 这里使用`v-if="!posts.length"`会使 build 出的页面报错，不知道原因 -->
         <PostCard v-for="(post, index) in posts" v-bind:key="index"
           v-bind:title="post.title" v-bind:desc="post.desc"
           v-bind:tag="post.tag" v-bind:date="post.date"
@@ -23,7 +24,7 @@
       </div>
       <div class="side">
         <div class="side-category">
-          <LoadingCategory v-if="!categories.length" />
+          <LoadingCategory />
           <Category v-for="(category, index) in categories" v-bind:key="index" 
             v-bind:name="category.name" v-bind:count="category.count"
             v-bind:desc="category.desc" v-bind:link="category.link"/>
@@ -43,6 +44,14 @@ export default {
       posts: [],
       categories: []
     }
+  },
+
+  beforeUpdate () {
+    ['.loading-cards', '.loading-categories'].forEach(v => {
+      const node = document.querySelector(v)
+      if (!node) return
+      node.style.display = 'none'
+    })
   },
 
   mounted () {

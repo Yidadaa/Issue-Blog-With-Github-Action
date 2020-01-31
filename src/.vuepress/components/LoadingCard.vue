@@ -8,7 +8,7 @@
 </div>
 </template>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 $light = #eee
 
 .loading-card
@@ -16,10 +16,12 @@ $light = #eee
   overflow hidden
   .loading-header
     height 20px
+    width 40%
     background $light
 
   .loading-title
     height 36px
+    width 30%
     background $light
     margin 10px 0
 
