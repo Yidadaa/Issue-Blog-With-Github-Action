@@ -1,7 +1,7 @@
 const github = require('@actions/github')
 const fs = require('fs')
 const path = require('path')
-const { repoConfig } = require('../src/.vuepress/config')
+const { repoConfig, slogan } = require('../src/.vuepress/config')
 
 const { owner, repo } = repoConfig
 const issueFile = path.resolve(__dirname, './issues.json')
@@ -42,13 +42,13 @@ function fmtDate(date) {
  */
 function formatDocument(rawData) {
   const data = rawData
-  log(`[Summary] ${data.length} issues`)
+  log(`[summary] ${data.length} issues`)
 
   const postPath = path.resolve(__dirname, '../src/posts')
 
   // process post file
   data.forEach((issue, i) => {
-    log(`[Proessing ${i} of ${data.length}] ${issue.number}.${issue.title}`)
+    log(`[proessing ${i} of ${data.length}] ${issue.number}.${issue.title}`)
     const fm = [`layout: PostLayout`,
       `id: ${issue.number}`,
       `date: ${fmtDate(issue.created_at)}`,
@@ -58,7 +58,7 @@ function formatDocument(rawData) {
     fs.writeFile(path.resolve(postPath, `./${issue.number}.md`), markdownText, () => {})
   })
 
-  log('[Post] Issues have been written to md files.')
+  log('[post] issues have been written to md files.')
 }
 
 /**
@@ -104,31 +104,31 @@ function processCategory(rawData) {
 async function download() {
   const tools = new github.GitHub(token)
 
-  log('[Download] Requesting Issues')
+  log('[download] requesting issues')
   try {
     const data = await tools.issues.listForRepo({
       owner, repo
     })
 
-    log('[Download] Writing Issues Data')
+    log('[download] writing Issues Data')
     const rawData = JSON.stringify(data)
     fs.writeFileSync(issueFile, rawData)
-    log('[Download] Done')
+    log('[download] done')
   } catch (error) {
     log(error)
     return
   }
 
-  log('[Download] Requesting Milestones')
+  log('[download] requesting milestones')
   try {
     const cates = await tools.issues.listMilestonesForRepo({
       owner, repo
     })
 
-    log('[Download] Writing Milestones Data')
+    log('[download] writing milestones data')
     const mData = JSON.stringify(cates)
     fs.writeFileSync(cateFile, mData)
-    log('[Download] Done')
+    log('[download] done')
   } catch (error) {
     log(error)
     return
@@ -141,14 +141,9 @@ async function download() {
  * @param {Array} milestones milestone list
  */
 function writeHomePageReadMe(issues, milestones) {
-  const slogan = {
-    main: '有逻辑的灵魂，',
-    sub: '造就有温度的编码。'
-  }
-
   const postsData = processPost(issues)
   const mData = processCategory(milestones)
-  log('[Writing] Writing data to ReadMe')
+  log('[writing] writing data to ReadMe')
 
   const readMeMeta = JSON.stringify({
     slogan,
@@ -186,7 +181,7 @@ function writeHomePageReadMe(issues, milestones) {
     }
   })
 
-  log('[Writing] Writing Categories')
+  log('[writing] writing categories')
   // write new files
   milestones.forEach(m => {
     const issueData = processPost(m.issues)

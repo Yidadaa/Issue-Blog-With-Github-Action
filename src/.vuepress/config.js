@@ -15,10 +15,14 @@ module.exports = {
     pushBranch: 'master',
     email: 'yidadaa@qq.com'
   },
-  title: "YiFei Zhang 的个人网站",
-  description: "在这里了解我的一切，Have Fun!",
+  title: "YiFei Zhang's Blog",
+  description: "在这里了解我的一切，对编程的热爱永不停歇。",
   customDomain: 'blog.simplenaive.cn',
   host: "0.0.0.0",
+  slogan: {
+    main: '有逻辑的灵魂，',
+    sub: '造就有温度的编码。'
+  },
   head: [
     [
       "link",
