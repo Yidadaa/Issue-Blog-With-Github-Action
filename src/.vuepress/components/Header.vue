@@ -43,7 +43,7 @@ export default {
   display flex
   justify-content space-between
   align-items center
-  padding 20px
+  padding 20px 0
 
   .left
     .motto
