@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LintCode 困难题赏 - 103.寻找带环链表入口 | YiFei Zhang 的个人网站</title>
+    <meta name="description" content="在这里了解我的一切，Have Fun!">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.5.1/katex.min.css">
+    
+    <link rel="preload" href="/assets/css/0.styles.ae077696.css" as="style"><link rel="preload" href="/assets/js/app.ce1f4e12.js" as="script"><link rel="preload" href="/assets/js/8.9cbf535b.js" as="script"><link rel="preload" href="/assets/js/6.8b907213.js" as="script"><link rel="preload" href="/assets/js/18.929e9c02.js" as="script"><link rel="preload" href="/assets/js/5.043707cc.js" as="script"><link rel="prefetch" href="/assets/js/10.a5176655.js"><link rel="prefetch" href="/assets/js/11.4afb1bcd.js"><link rel="prefetch" href="/assets/js/12.bd062d97.js"><link rel="prefetch" href="/assets/js/13.7b0dd9c9.js"><link rel="prefetch" href="/assets/js/14.275e0708.js"><link rel="prefetch" href="/assets/js/15.95b55a67.js"><link rel="prefetch" href="/assets/js/16.6fa177b7.js"><link rel="prefetch" href="/assets/js/17.764956e0.js"><link rel="prefetch" href="/assets/js/19.e4b14cb5.js"><link rel="prefetch" href="/assets/js/2.8d3836fd.js"><link rel="prefetch" href="/assets/js/20.4632b9f8.js"><link rel="prefetch" href="/assets/js/21.09133253.js"><link rel="prefetch" href="/assets/js/22.133f7f5b.js"><link rel="prefetch" href="/assets/js/23.8c069928.js"><link rel="prefetch" href="/assets/js/24.2c7b60cf.js"><link rel="prefetch" href="/assets/js/25.dd05b4f6.js"><link rel="prefetch" href="/assets/js/26.d1f8523c.js"><link rel="prefetch" href="/assets/js/27.c6207fe8.js"><link rel="prefetch" href="/assets/js/28.3b98680f.js"><link rel="prefetch" href="/assets/js/29.53fff2f1.js"><link rel="prefetch" href="/assets/js/3.22f3af19.js"><link rel="prefetch" href="/assets/js/30.adff085c.js"><link rel="prefetch" href="/assets/js/31.5ee31d59.js"><link rel="prefetch" href="/assets/js/4.83b96d3b.js"><link rel="prefetch" href="/assets/js/7.e294d982.js"><link rel="prefetch" href="/assets/js/9.446e542e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ae077696.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="header-wrap" data-v-d3b44178><div class="header page" data-v-d3b44178><div class="left" data-v-d3b44178><div class="motto" data-v-d3b44178><div class="line" data-v-d3b44178>暮春早夏的月亮</div> <div class="line" data-v-d3b44178>原是情人的月亮，不比秋冬是诗人的月亮</div></div> <div class="nav" data-v-d3b44178><a href="/" class="nav-item" data-v-d3b44178>首页</a><a href="https://github.com/Yidadaa" class="nav-item" data-v-d3b44178>Github</a></div></div> <div class="right search" data-v-d3b44178><input type="text" placeholder="搜索" class="search-bar" data-v-d3b44178></div></div></div> <div class="page post-page"><div class="title"><div class="post-title">LintCode 困难题赏 - 103.寻找带环链表入口</div></div> <div class="info"><div class="author">Yidadaa</div> <div class="date">2018/08/09</div></div> <div class="post-content"><div class="content__default"><h1 id="lintcode-困难题赏-103-寻找带环链表入口"><a href="#lintcode-困难题赏-103-寻找带环链表入口" class="header-anchor">#</a> LintCode 困难题赏 - 103.寻找带环链表入口</h1> <h3 id="题目"><a href="#题目" class="header-anchor">#</a> 题目</h3> <p>给定一个链表，如果链表中存在环，则返回到链表中环的起始节点，如果没有环，返回null。</p> <p><strong>要求</strong>：不使用额外空间。<br> <strong>例子</strong>：带环链表<code>1-&gt;5-&gt;3-&gt;4-&gt;6-&gt;(index-2)</code>，返回值为<code>index-2</code>对应的节点，即值为<code>5</code>的那个节点。</p> <h3 id="题解"><a href="#题解" class="header-anchor">#</a> 题解</h3> <p>这道题可以说是链表题目中的经典题目了。解这道题之前，还有道题（LintCode No.102）是判断一个链表是否有环，使用了快慢指针的方法，具体思路是使用两根指针以不同的速度遍历链表，快指针一次走两个节点，慢指针一次走一个节点，如果两根指针中途相遇了，那么这个链表就是有环的。</p> <p>本题的思路依然是使用快慢指针的方法，但前提要先利用快慢指针的特性，找出快慢指针走过的路程、环入口、相遇点之间的数学关系。</p> <p>设起点到入口走了<code>x</code>步，入口到两根指针第一次相遇处走了<code>y</code>步，环的长度为<code>c</code>，则快慢指针第一次相遇时，快指针走的距离是慢指针的两倍，即<code>x+Nc+y=2(x+y)</code>（其中N为自然数），变换一下得到<code>x+y=Nc</code>，于是我们就可以得到入口的索引<code>x=Nc-y</code>，这个式子意味着，如果我们用另外两根指针去遍历该链表，其中一根从起点开始走，另外一根从之前快慢指针相遇的地方开始走，并且两根指针每次都只走一步，那么当第一根指针走了<code>x</code>步到达环入口时，恰好等于另一根指针从相遇点出发然后绕环N圈后到达环入口，即两根指针在环的入口处相遇。</p> <p><img src="https://user-images.githubusercontent.com/16968934/43889515-f8fdcf44-9bf6-11e8-83a0-53b50e8bb635.jpg" alt="default"></p> <h3 id="代码"><a href="#代码" class="header-anchor">#</a> 代码</h3> <div class="language-python extra-class"><pre class="language-python"><code><span class="token triple-quoted-string string">&quot;&quot;&quot;
+Definition of ListNode
+class ListNode(object):
+
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+&quot;&quot;&quot;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    @param: head: The first node of linked list.
+    @return: The node where the cycle begins. if there is no cycle, return null
+    &quot;&quot;&quot;</span>
+    <span class="token keyword">def</span> <span class="token function">detectCycle</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> head<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        slow <span class="token operator">=</span> head
+        fast <span class="token operator">=</span> head
+        meet <span class="token operator">=</span> <span class="token boolean">None</span>
+        <span class="token keyword">while</span> fast <span class="token keyword">and</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">:</span>
+            slow <span class="token operator">=</span> slow<span class="token punctuation">.</span><span class="token builtin">next</span>
+            fast <span class="token operator">=</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">.</span><span class="token builtin">next</span>
+            <span class="token keyword">if</span> slow <span class="token operator">==</span> fast<span class="token punctuation">:</span>
+                meet <span class="token operator">=</span> fast
+                <span class="token keyword">break</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> fast <span class="token keyword">or</span> <span class="token keyword">not</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">None</span>
+        slow <span class="token operator">=</span> head
+        <span class="token keyword">while</span> slow <span class="token operator">!=</span> meet<span class="token punctuation">:</span>
+            slow <span class="token operator">=</span> slow<span class="token punctuation">.</span><span class="token builtin">next</span>
+            meet <span class="token operator">=</span> meet<span class="token punctuation">.</span><span class="token builtin">next</span>
+        <span class="token keyword">return</span> slow
+</code></pre></div></div></div> <!----></div> <div class="footer" data-v-610ecb74><div class="footer-content page" data-v-610ecb74>
+    Copyright 2020
+  </div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ce1f4e12.js" defer></script><script src="/assets/js/8.9cbf535b.js" defer></script><script src="/assets/js/6.8b907213.js" defer></script><script src="/assets/js/18.929e9c02.js" defer></script><script src="/assets/js/5.043707cc.js" defer></script>
+  </body>
+</html>
