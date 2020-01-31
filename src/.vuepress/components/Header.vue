@@ -3,8 +3,7 @@
     <div class="header page">
       <div class="left">
         <div class="motto">
-          <div class="line">暮春早夏的月亮</div>
-          <div class="line">原是情人的月亮，不比秋冬是诗人的月亮</div>
+          <div class="line" v-for="(line, index) in headTitle" v-bind:key="index">{{line}}</div>
         </div>
         <div class="nav">
           <a :href="link.link" class="nav-item" v-for="(link, index) in nav">{{link.name}}</a>
@@ -18,17 +17,19 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      nav: [{
-        name: '首页',
-        link: '/'
-      }, {
-        name: 'Github',
-        link: 'https://github.com/Yidadaa'
-      }]
+      nav: [],
+      headTitle: []
     }
+  },
+
+  mounted() {
+    console.log(this.$themeConfig)
+    this.nav = this.$themeConfig.nav
+    this.headTitle = this.$themeConfig.headTitle
   }
 }
 </script>

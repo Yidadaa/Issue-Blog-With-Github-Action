@@ -18,10 +18,24 @@ module.exports = {
   title: "YiFei Zhang's Blog",
   description: "在这里了解我的一切，对编程的热爱永不停歇。",
   customDomain: 'blog.simplenaive.cn',
-  host: "0.0.0.0",
   slogan: {
     main: '有逻辑的灵魂，',
     sub: '造就有温度的编码。'
+  },
+  base: '/',
+  host: "0.0.0.0",
+  themeConfig: {
+    nav: [{
+      name: '首页',
+      link: '/'
+    }, {
+      name: 'Github',
+      link: 'https://github.com/Yidadaa'
+    }],
+    headTitle: [
+      '暮春早夏的月亮',
+      '原是情人的月亮，不比秋冬是诗人的月亮'
+    ]
   },
   head: [
     [
