@@ -14,3 +14,23 @@ pad = 50px 300px
   width: 90%
   max-width 900px
   margin: auto
+
+.loading-light
+  position relative
+
+.loading-light:after
+  content ''
+  position absolute
+  height 20px
+  width 1000px
+  background-color #fff
+  opacity .4
+  left -500px
+  animation fly-to-right 2s ease infinite
+
+@keyframes fly-to-right
+  from
+    transform translateX(0px) rotate(45deg)
+
+  to
+    transform translateX(1000px) rotate(45deg)

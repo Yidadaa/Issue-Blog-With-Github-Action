@@ -15,6 +15,7 @@
     </div>
     <div class="content">
       <div class="posts">
+        <LoadingCard v-if="!posts.length"/>
         <PostCard v-for="(post, index) in posts" v-bind:key="index"
           v-bind:title="post.title" v-bind:desc="post.desc"
           v-bind:tag="post.tag" v-bind:date="post.date"
@@ -22,6 +23,7 @@
       </div>
       <div class="side">
         <div class="side-category">
+          <LoadingCategory v-if="!categories.length" />
           <Category v-for="(category, index) in categories" v-bind:key="index" 
             v-bind:name="category.name" v-bind:count="category.count"
             v-bind:desc="category.desc" v-bind:link="category.link"/>
@@ -46,7 +48,7 @@ export default {
   mounted () {
     this.posts = this.$frontmatter.posts
 
-    const count = this.$frontmatter.categories.reduce((pre, cur) => pre + cur.count, 0)
+    const count = this.posts.length
     this.categories = [{
       name: '总览',
       count,
@@ -115,6 +117,8 @@ export default {
 
   .posts
     box-sizing border-box
+    width 100%
+    min-height 400px
 
   .side
     box-sizing border-box
