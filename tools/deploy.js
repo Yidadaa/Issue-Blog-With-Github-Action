@@ -34,25 +34,27 @@ async function main() {
   const tmpPath = path.resolve(rootPath, 'tmp')
   if (fs.existsSync(tmpPath)) {
     shell.rm('-rf', tmpPath)
-    console.log(`[rm] ${tmpPath} removed`)
+    console.log(`[rm] ${tmpPath} is removed`)
   }
   fs.mkdirSync(tmpPath)
   console.log(`[mkdir] ${tmpPath} is created`)
-  const git = Git(tmpPath)
 
-  console.log('[git] adding remote')
-  git.pull(remote, pushBranch, () => {
-    console.log('[git] pull done')
-    // delete old files
+  console.log('[git] cloning')
+  Git(tmpPath).clone(remote, () => {
+    console.log('[git] clone done')
+    const repoPath = path.resolve(tmpPath, repo)
+    // delete old files and copy new file
     shell.ls(distPath).forEach(v => {
-      let gitFile = path.resolve(tmpPath, v)
-      if (fs.existsSync(gitFile)) shell.rm('-rf', gitFile)
-      shell.cp('-r', path.resolve(distPath, v), tmpPath)
+      let gitFile = path.resolve(repoPath, v)
+      if (fs.existsSync(gitFile)) {
+        shell.rm('-rf', gitFile)
+      }
+      shell.cp('-r', path.resolve(distPath, v), repoPath)
       console.log(`[cp] ${gitFile}`)
     })
 
     console.log('[git] deploying...')
-    git.addConfig('user.name', owner)
+    Git(repoPath).addConfig('user.name', owner)
       .addConfig('user.email', email)
       .add('.')
       .commit(`deploy(blog): version ${nowStr}`)
