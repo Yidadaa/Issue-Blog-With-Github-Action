@@ -31,6 +31,9 @@ module.exports = {
     }, {
       name: 'Github',
       link: 'https://github.com/Yidadaa'
+    }, {
+      name: 'CV',
+      link: '/cv.html'
     }],
     headTitle: [
       '暮春早夏的月亮',
