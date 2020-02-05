@@ -16,11 +16,12 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      friendLinks: new Array(4).fill({
-        name: 'xxxxx',
-        link: 'sssssss'
-      })
+      friendLinks: []
     }
+  },
+
+  mounted() {
+    this.friendLinks = this.$themeConfig.friendLinks
   }
 }
 </script>

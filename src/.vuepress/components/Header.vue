@@ -26,7 +26,6 @@ export default {
   },
 
   mounted() {
-    console.log(this.$themeConfig)
     this.nav = this.$themeConfig.nav
     this.headTitle = this.$themeConfig.headTitle
   }
