@@ -5,7 +5,6 @@
       <div class="cv-header cv-two-column cv-section">
         <div class="cv-info">
           <div class="cv-author">张义飞</div>
-          <div class="cv-contact">电话：+86 13032883129</div>
           <div class="cv-contact">邮箱：flynn.zhang@foxmail.com</div>
           <div class="cv-contact">主页：blog.simplenaive.cn</div>
           <div class="cv-contact">Github：github.com/Yidadaa</div>
@@ -27,10 +26,10 @@
           <div class="cv-major">计算机科学与工程学院，计算机科学专业</div>
 
           <div class="cv-two-column">
-            <div class="cv-left-column cv-school">硕士，电子科技大学</div>
-            <div class="cv-right-column cv-time-range">2018.09 - 2021.06</div>
+            <div class="cv-left-column cv-school">学士，电子科技大学</div>
+            <div class="cv-right-column cv-time-range">2014.09 - 2018.06</div>
           </div>
-          <div class="cv-major">计算机科学与工程学院，计算机科学专业</div>
+          <div class="cv-major">英才实验学院，计算机科学专业</div>
         </div>
 
         <div class="cv-section honor cv-right-column">
@@ -55,7 +54,7 @@
         <ul class="cv-experience-list">
           <li class="cv-experience-item">
             <div class="cv-two-column cv-experience-header">
-              <div class="cv-left-column cv-experience-title">三维视觉中的深度估计算法</div>
+              <div class="cv-left-column cv-experience-title">三维视觉中的深度估计算法 @ 未来媒体研究中心</div>
               <div class="cv-right-column cv-time-range">from 2019.04</div>
             </div>
             <ul class="cv-experience-sub-item">
