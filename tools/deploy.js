@@ -42,7 +42,7 @@ async function main() {
   console.log(`[mkdir] ${tmpPath} is created`)
 
   console.log('[git] cloning')
-  Git(tmpPath).clone(remote, () => {
+  Git(tmpPath).clone(remote, ['-b', pushBranch], () => {
     console.log('[git] clone done')
     const repoPath = path.resolve(tmpPath, repo)
     // delete old files and copy new file
