@@ -1,15 +1,17 @@
 <h1 align="center">ISSUE BLOG</h1>
 
 <div align="center">
+
+[English](./README.md) / [中文](./README-zh.md)
+
 易于使用、免服务器部署、响应式设计的博客主题。
 </div>
-
 
 <img align="center" src="./img/screenshot.jpg" alt="截图"/>
 
 ## 特性
 - 响应式设计，适配多种设备尺寸；
-- Latex 公式支持；
+- 支持 LaTex 公式；
 - 为打印特别优化的样式；
 - 支持 SEO 优化；
 - 直接使用 Github 的 Issue 功能书写和发布你的博客；

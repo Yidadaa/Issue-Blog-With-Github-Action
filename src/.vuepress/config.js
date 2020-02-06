@@ -17,12 +17,12 @@ module.exports = {
   },
   title: "YiFei Zhang's Blog",
   description: "在这里了解我的一切，对编程的热爱永不停歇。",
-  customDomain: 'blog.simplenaive.cn',
+  customDomain: '',
   slogan: {
     main: '有逻辑的灵魂，',
     sub: '造就有温度的编码。'
   },
-  base: '/Issue-Blog-With-Github-Action',
+  base: '/Issue-Blog-With-Github-Action/',
   themeConfig: {
     nav: [{
       name: '首页',
