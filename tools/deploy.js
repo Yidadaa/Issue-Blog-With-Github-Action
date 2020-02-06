@@ -24,7 +24,9 @@ async function main() {
   const nowStr = new Date().toLocaleString()
 
   // write CNAME
-  fs.writeFile(path.resolve(distPath, 'CNAME'), customDomain, () => console.log('[host] on ' + customDomain))
+  if (customDomain && customDomain.length > 0) {
+    fs.writeFile(path.resolve(distPath, 'CNAME'), customDomain, () => console.log('[host] on ' + customDomain))
+  }
 
   const remote = `https://${actor}:${token}@github.com/Yidadaa/${repo}.git`
 
