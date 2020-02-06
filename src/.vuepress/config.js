@@ -10,8 +10,8 @@ const vssueConfig = {
 
 module.exports = {
   repoConfig: {
-    repo: 'Yidadaa',
-    owner: 'Issue-Blog-With-Github-Action',
+    owner: 'Yidadaa',
+    repo: 'Issue-Blog-With-Github-Action',
     pushBranch: 'master',
     email: 'yidadaa@qq.com'
   },

@@ -5,7 +5,7 @@ An easy-to-use, serverless-deploying, github-based blog theme.
 </div>
 
 
-<img align="center" src="./img/screenshot.jpg" />
+<img align="center" src="./img/screenshot.jpg" alt="screenshot"/>
 
 ## Features
 - Modern responsive design.
