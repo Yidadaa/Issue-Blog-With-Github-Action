@@ -3,15 +3,15 @@ const ck = require("markdown-it-task-checkbox")
 
 const vssueConfig = {
   owner: 'Yidadaa',
-  repo: 'Yidadaa.github.io',
+  repo: 'Issue-Blog-With-Github-Action',
   clientId: "2783a4b752f56c0ed912",
   clientSecret: "c8d9116fcade901567ff34aa1fb09216731683a3"
 }
 
 module.exports = {
   repoConfig: {
-    repo: vssueConfig.repo,
-    owner: vssueConfig.owner,
+    repo: 'Yidadaa',
+    owner: 'Issue-Blog-With-Github-Action',
     pushBranch: 'master',
     email: 'yidadaa@qq.com'
   },
@@ -22,8 +22,7 @@ module.exports = {
     main: '有逻辑的灵魂，',
     sub: '造就有温度的编码。'
   },
-  base: '/',
-  host: "0.0.0.0",
+  base: '/Issue-Blog-With-Github-Action',
   themeConfig: {
     nav: [{
       name: '首页',
@@ -45,6 +44,10 @@ module.exports = {
     }, {
       name: 'ycjgg',
       link: 'https://ycjgg.github.io'
+    }],
+    extraFooters: [{
+      title: '',
+      text: '@ 蜀 ICP 备 19000509 号 - 1'
     }]
   },
   head: [
@@ -67,10 +70,13 @@ module.exports = {
       {
         rel: "icon",
         type: "image/png",
-        href: "/favicons/icon.png"
+        href: "https://avatars2.githubusercontent.com/u/16968934?s=460&v=4"
       }
     ]
   ],
+
+  // dev config
+  host: "0.0.0.0",
   plugins: [
     [
       "@vssue/vuepress-plugin-vssue",

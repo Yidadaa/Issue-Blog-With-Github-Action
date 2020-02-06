@@ -1,11 +1,19 @@
 <template>
   <div class="footer">
     <div class="footer-content page">
-      <div class="footer-title power">本博客驱动自</div>
-      <a class="logo" href="https://github.com/Yidadaa/Issue-Blog-With-Github-Action">ISSUE BLOG</a>
-      <div class="footer-title">友情链接</div>
-      <div class="links">
-        <a :href="link.link" class="link" v-for="link in friendLinks">{{ link.name }}</a>
+      <div class="left">
+        <div class="footer-title">Friend Links</div>
+        <div class="links footer-text">
+          <a :href="link.link" class="link" v-for="link in friendLinks">{{ link.name }}</a>
+        </div>
+        <div v-for="(f) in extraFooters">
+          <div class="footer-title">{{ f.title }}</div>
+          <div class="footer-text">{{ f.text }}</div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="footer-title power">Powered by</div>
+        <a class="logo" href="https://github.com/Yidadaa/Issue-Blog-With-Github-Action">ISSUE BLOG</a>
       </div>
     </div>
   </div>
@@ -16,12 +24,16 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      friendLinks: []
+      friendLinks: [],
+      extraFooters: []
     }
   },
 
   mounted() {
     this.friendLinks = this.$themeConfig.friendLinks
+    if (this.$themeConfig.extraFooters) {
+      this.extraFooters = this.$themeConfig.extraFooters
+    }
   }
 }
 </script>
@@ -33,6 +45,9 @@ export default {
   .footer-content
     padding 20px 0
     color #fff
+    display flex
+    flex-wrap wrap
+    justify-content space-between
 
     .power
       font-style italic
@@ -52,9 +67,18 @@ export default {
       font-size 14px
       margin-bottom 10px
 
-    .links
+    .footer-text
       font-size 12px
+      margin-bottom 20px
+
+    .links
       a.link
         margin-right 20px
-        color #fff
+        color #ffffff
+        border 1px solid #fff
+        padding 2px 10px
+        border-radius 20px
+        &:hover
+          background-color #fff
+          color #000
 </style>
