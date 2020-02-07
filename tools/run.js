@@ -107,9 +107,17 @@ async function download() {
 
   log('[download] requesting issues')
   try {
-    const data = await tools.issues.listForRepo({
+    let data = await tools.issues.listForRepo({
       owner, repo
     })
+
+    // filter issues
+    if (repoConfig.filterUsers && repoConfig.filterUsers.length > 0) {
+      const filterUsers = repoConfig.filterUsers
+      const count = data.data.length
+      data.data = data.data.filter(v => filterUsers.includes(v.user.login))
+      log(`[filter] filtered ${count - data.data.length} issues`)
+    }
 
     log('[download] writing Issues Data')
     const rawData = JSON.stringify(data)

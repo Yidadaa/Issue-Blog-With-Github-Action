@@ -24,7 +24,7 @@
 无论你是编程新手还是老鸟，本项目都提供了多种配置方式供你使用，可以根据自身情况选择安装方式。
 
 ### 最简安装
-本小节面向懒得点 `Fork` 按钮的新手以及懒得在命令行中使用 Git 的老鸟。
+本小节所示的安装方法可以满足大多数人的需求，你只需要在你的 `<your-name>.github.io` 仓库中新建三个配置文件，即可开始使用，具体步骤如下：
 ``` bash
 .github
  |- workflow
@@ -32,12 +32,12 @@
     |- cv.md # 简历模板配置文件
     |- main.yml # github actions 配置文件
 ```
-1. 按照如上结构在你的 Github.io 仓库目录中新建文件，这三个文件的模板均可以在 [`./template`](./template) 目录中找到；
+1. 按照如上结构在你的 Github.io 仓库目录中新建文件，文件内容参考 [`./template`](./template) 下的同名文件；
 2. 按照[配置说明](#配置说明)修改 `custom.js` 和 `cv.md`；
-3. 修改 `main.yml` 中的 `<your-github-name>` 为你的 Github ID。
+3. 修改 `main.yml` 文件中所有的 `<your-github-name>` 占位符为你的 Github ID。
 
 ### 普通安装
-本小节内容面向对 Github 不熟悉的新手，在阅读本节之前，请确保你已经注册有自己的 Github 账号并已登录，如果你已经拥有了一个 Github.io 仓库，请移步其他配置步骤。
+本小节内容面向对 Github 不熟悉的新手，在阅读本节之前，请确保你已经注册有自己的 Github 账号并已登录，如果你已经拥有了一个 Github.io 仓库，请使用[自定义安装](#自定义安装)或[最简安装](#最简安装)。
 1. 点击本项目右上角的 `Fork` 按钮，获取本项目的备份；
 2. 在自己的 Github 仓库页，找到上一步 `Fork` 出来的仓库，在仓库的 `Settings` 页面，将项目名称重命名为符合 Github Pages 要求的名字格式，以作者为例，作者的 Github ID 是 `Yidadaa`，则仓库名字应该为 `Yidadaa.github.io`；
 3. 注意到项目的默认 `Branch` 是 `source`，这是因为 Github 默认使用 `master` 分支作为 Github Pages 主页，所以本项目将源码托管在 `source` 分支，在项目中找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](#配置说明)。
@@ -75,12 +75,15 @@ git push origin -u source
 
 #### `repoConfig`
 构建出的静态页面推送配置，其中 `repo` 和 `owner` 应与 `vssueConfig` 中保持一致，`pushBranch` 保留为 `master` 即可，`email` 填写为你的 Github 账号绑定的邮箱，用于填写 commit message。
+
+如果你不想让其他人发布的 issue 出现在你的主页，可以在 `filterUsers` 字段设置用户 ID 白名单，若设置为空或者不设置，则表示任何人发布的 issue 都会被发布出来。
 ```js
 {
   repo: String, // same as vssueConfig.repo
   owner: String, // same as vssueConfig.owner
   pushBranch: String, // which branch to deploy static pages, default is 'master'
-  email: String // your email of github account, just for commit message
+  email: String, // your email of github account, just for commit message
+  filterUsers: Array<String> // filter issues according to github account ids
 }
 ```
 
@@ -94,7 +97,7 @@ git push origin -u source
 自定义域名，如果你有自己的域名，请将域名填写到此处。
 
 #### `base`
-自定义根路径，**注意：**本选项与你的网站 url 配置有关，如果你的博客地址是 `xxxxx.com/blog`，则此项应该填写为 `/blog/`；如果你的博客地址采用了子域名的方式，如 `blog.xxxxx.com`，则配置为 `/`。详情可查看 [vuepess 关于此项配置的说明](https://vuepress.vuejs.org/zh/config/#base)。
+自定义根路径，**注意：** 本选项与你的网站 url 配置有关，如果你的博客地址是 `xxxxx.com/blog`，则此项应该填写为 `/blog/`；如果你的博客地址采用了子域名的方式，如 `blog.xxxxx.com`，则配置为 `/`。详情可查看 [vuepess 关于此项配置的说明](https://vuepress.vuejs.org/zh/config/#base)。
 
 #### `slogan`
 网站首页的文字，`main` 为第一行，`sub` 为第二行，不建议留空。
@@ -158,6 +161,10 @@ yarn run local
 yarn run dev
 ```
 其余开发说明，请参阅 [vuepress 官方文档](https://vuepress.vuejs.org/)。
+
+## 常见问题
+### 1. 如果防止别人发布的 issue 出现在我的主页？
+你可以配置 `repoConfig.filterUsers` 字段来设置白名单。
 
 ## 鸣谢
 本项目基于 [vuepress](https://vuepress.vuejs.org/) 开发.

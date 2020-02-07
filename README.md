@@ -32,7 +32,7 @@ Below are just some of the methods for installing ISSUE BLOG. Do not follow all 
     |- cv.md # resume config
     |- main.yml # github actions config
 ```
-1. Create the above files in your github.io repo, you can find the templates of these files at [`./template`](./template);
+1. Create the above files in your `github.io` repo, you can find the templates of these files at [`./template`](./template);
 2. Edit `custom.js` and `cv.md` according to [Config Reference](#config-reference);
 3. Edit `main.yml`, replace all `<your-github-name>` placeholder to your github account id.
 
@@ -75,7 +75,8 @@ Config for push repo, here is the example:
   repo: String, // same as vssueConfig.repo
   owner: String, // same as vssueConfig.owner
   pushBranch: String, // which branch to deploy static pages, default is 'master'
-  email: String // your email of github account, just for commit message
+  email: String, // your email of github account, just for commit message
+  filterUsers: Array<String> // filter issues according to github account ids
 }
 ```
 
@@ -144,6 +145,10 @@ yarn run local
 yarn run dev
 ```
 You can refer [vuepress doc](https://vuepress.vuejs.org/) for more details.
+
+## FAQ
+### 1. How to prevent others' issues to publish to my site?
+You can set `repoConfig.filterUsers` to allow specific users to publish blogs.
 
 ## Acknowledgment
 This project is based on [vuepress](https://vuepress.vuejs.org/).
