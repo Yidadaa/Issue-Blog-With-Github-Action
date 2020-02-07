@@ -299,4 +299,7 @@ img
   pre
     page-break-inside avoid
 
+  .footer, .vssue
+    display none
+
 </style>
