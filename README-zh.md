@@ -32,7 +32,7 @@
     |- cv.md # 简历模板配置文件
     |- main.yml # github actions 配置文件
 ```
-1. 按照如上结构在你的 Github.io 仓库目录中新建文件，这三个文件的模板均可以在 [`./temlate`](./template) 目录中找到；
+1. 按照如上结构在你的 Github.io 仓库目录中新建文件，这三个文件的模板均可以在 [`./template`](./template) 目录中找到；
 2. 按照[配置说明](#配置说明)修改 `custom.js` 和 `cv.md`；
 3. 修改 `main.yml` 中的 `<your-github-name>` 为你的 Github ID。
 
