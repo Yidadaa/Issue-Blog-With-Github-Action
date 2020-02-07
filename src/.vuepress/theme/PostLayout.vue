@@ -232,10 +232,13 @@ img
     font-fang-song()
 
     .author
-      margin-right 14px
+      margin 0 7px
 
     .date
-      margin-right 14px
+      margin 0 7px
+
+    .count
+      margin 0 7px
 
 // comment
 .vssue
