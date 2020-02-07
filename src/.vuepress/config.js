@@ -18,11 +18,11 @@ module.exports = {
   title: "YiFei Zhang's Blog",
   description: "在这里了解我的一切，对编程的热爱永不停歇。",
   customDomain: '',
+  base: '/Issue-Blog-With-Github-Action/',
   slogan: {
     main: '有逻辑的灵魂，',
     sub: '造就有温度的编码。'
   },
-  base: '/Issue-Blog-With-Github-Action/',
   themeConfig: {
     nav: [{
       name: '首页',
@@ -55,14 +55,14 @@ module.exports = {
       "link",
       {
         rel: "stylesheet",
-        href: "https://cdn.bootcss.com/prism/9000.0.1/themes/prism.min.css"
+        href: "/style/prism.min.css"
       }
     ],
     [
       "link",
       {
         rel: "stylesheet",
-        href: "https://cdn.bootcss.com/KaTeX/0.5.1/katex.min.css"
+        href: "/style/katex.min.css"
       }
     ],
     [

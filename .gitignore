@@ -2,7 +2,6 @@
 *.lock
 dist
 package-lock.json
-config.js
 
 cates.json
 issues.json
