@@ -33,19 +33,19 @@
     |- main.yml # github actions 配置文件
 ```
 1. 按照如上结构在你的 Github.io 仓库目录中新建文件，这三个文件的模板均可以在 [`./temlate`](./template) 目录中找到；
-2. 按照[配置说明](###配置说明)修改 `custom.js` 和 `cv.md`；
+2. 按照[配置说明](#配置说明)修改 `custom.js` 和 `cv.md`；
 3. 修改 `main.yml` 中的 `<your-github-name>` 为你的 Github ID。
 
 ### 普通安装
 本小节内容面向对 Github 不熟悉的新手，在阅读本节之前，请确保你已经注册有自己的 Github 账号并已登录，如果你已经拥有了一个 Github.io 仓库，请移步其他配置步骤。
 1. 点击本项目右上角的 `Fork` 按钮，获取本项目的备份；
 2. 在自己的 Github 仓库页，找到上一步 `Fork` 出来的仓库，在仓库的 `Settings` 页面，将项目名称重命名为符合 Github Pages 要求的名字格式，以作者为例，作者的 Github ID 是 `Yidadaa`，则仓库名字应该为 `Yidadaa.github.io`；
-3. 注意到项目的默认 `Branch` 是 `source`，这是因为 Github 默认使用 `master` 分支作为 Github Pages 主页，所以本项目将源码托管在 `source` 分支，在项目中找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](###配置说明)。
+3. 注意到项目的默认 `Branch` 是 `source`，这是因为 Github 默认使用 `master` 分支作为 Github Pages 主页，所以本项目将源码托管在 `source` 分支，在项目中找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](#配置说明)。
 
 ### 自定义安装
 本小节面向有 Github 使用经验，并且已经拥有自己的 Github Pages 的用户。
 
-如果你想完全舍弃原来的 Github Pages 内容，只需要将原来的 Github.io 仓库删除，然后参照[最简安装](###最简安装)进行安装即可；如果你想保留原有的 Github Pages 内容，并与本项目构建出的文件共存，那么可以遵循以下步骤进行安装：
+如果你想完全舍弃原来的 Github Pages 内容，只需要将原来的 Github.io 仓库删除，然后参照[最简安装](#最简安装)进行安装即可；如果你想保留原有的 Github Pages 内容，并与本项目构建出的文件共存，那么可以遵循以下步骤进行安装：
 ```bash
 # 1. 将本项目 clone 到本地
 git clone https://github.com/Yidadaa/Issue-Blog-With-Github-Action.git
@@ -57,7 +57,7 @@ git remote set-url origin your-remote-github.io-repo.git
 git push origin -u source
 ```
 
-经过以上步骤后，去远程仓库的浏览器页面，找到 `Settings -> Branches`，修改 `Default branch` 为刚刚推送的 `source` 分支，然后找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](###配置说明)。
+经过以上步骤后，去远程仓库的浏览器页面，找到 `Settings -> Branches`，修改 `Default branch` 为刚刚推送的 `source` 分支，然后找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](#配置说明)。
 
 ### 配置说明
 本小节将对本项目用到的各个配置项进行说明，这些配置项对定制化你的页面至关重要。

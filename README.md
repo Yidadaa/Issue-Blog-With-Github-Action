@@ -33,12 +33,12 @@ Below are just some of the methods for installing ISSUE BLOG. Do not follow all 
     |- main.yml # github actions config
 ```
 1. Create the above files in your github.io repo, you can find the templates of these files at [`./template`](./template);
-2. Edit `custom.js` and `cv.md` according to [Config Reference](###Config-Reference);
+2. Edit `custom.js` and `cv.md` according to [Config Reference](#config-reference);
 3. Edit `main.yml`, replace all `<your-github-name>` placeholder to your github account id.
 
 ### Common Installation (with Fork)
 1. Fork this project, and rename to <your-github-name>.github.io;
-2. Edit `/src/.vuepress/custom.js` to config your site, follow [this section](###Config-Reference).
+2. Edit `/src/.vuepress/custom.js` to config your site, follow [this section](#config-reference).
 
 ### Custom Installation
 If you don't want to override your existing github.io repo, you can push the code to the `source` branch of your repo.
@@ -54,7 +54,7 @@ git push origin -u source
 ```
 Then go to `Settings -> Branches`, and change `Default branch` to `source` branch, we host the source code in `source` branch and deploy the static pages to `master` branch.
 
-Finally, edit `/src/.vuepress/custom.js` to config your site, please follow [this section](###Config-Reference).
+Finally, edit `/src/.vuepress/custom.js` to config your site, please follow [this section](#config-reference).
 
 ### Config Reference
 #### `vssueConfig`
