@@ -1,5 +1,4 @@
 /node_modules/
-*.lock
 dist
 package-lock.json
 

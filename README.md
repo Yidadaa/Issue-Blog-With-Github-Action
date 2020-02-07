@@ -130,13 +130,13 @@ Please refer [vuepress guide](https://vuepress.vuejs.org/config/#head) for detai
 You need to create a new token [here](https://github.com/settings/tokens) to develop and debug in local machine.
 
 ```bash
-# 1. write your token to /tools/config.js
+# 1. write your token to ./tools/config.js
 cp ./tools/config.template.js ./tools/config.js
-# edit config.js with your favorite text editor
+# edit ./tools/config.js with your favorite text editor, and copy your token to the file
 
 # 2. install depencies
-yarn add
-yarn add global vuepress
+yarn install
+yarn global add vuepress
 
 # 3. fetch issues and save them to files
 yarn run local

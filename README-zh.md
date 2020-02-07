@@ -146,13 +146,13 @@ git push origin -u source
 ## 开发
 在本地开发之前，请先在[此处](https://github.com/settings/tokens)新增一个用于调试的 token 备用，然后按照以下步骤进行开发：
 ```bash
-# 1. 将 token 放置到 /tools/config.js 中
+# 1. 将 token 放置到 ./tools/config.js 中
 cp ./tools/config.template.js ./tools/config.js
-# write your token to config.js
+# 把你的 token 写入 ./tools/config.js
 
 # 2. 安装必要的依赖项
-yarn add
-yarn add global vuepress
+yarn install
+yarn global add vuepress
 
 # 3. 拉取 issue 并保存在本地
 yarn run local
