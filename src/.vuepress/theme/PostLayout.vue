@@ -9,6 +9,10 @@
     <div class="info">
       <div class="author">{{$frontmatter.author}}</div>
       <div class="date">{{$frontmatter.date}}</div>
+      <div class="count" v-if="$themeConfig.busuanziCount">
+        <span id="busuanzi_value_page_pv"></span>
+        <span>views</span>
+      </div>
     </div>
 
     <div class="post-content">
@@ -230,6 +234,9 @@ img
     .author
       margin-right 14px
 
+    .date
+      margin-right 14px
+
 // comment
 .vssue
   font-hei()
@@ -292,6 +299,9 @@ img
     .author
       font-size 20px
       line-height 2
+
+  .count
+    display none
 
   code
     word-break break-all

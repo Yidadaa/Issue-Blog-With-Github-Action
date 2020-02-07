@@ -10,6 +10,15 @@
           <div class="footer-title">{{ f.title }}</div>
           <div class="footer-text">{{ f.text }}</div>
         </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" v-if="$themeConfig.busuanziCount">
+        </script>
+        <span id="busuanzi_container_site_pv" class="footer-count" v-if="$themeConfig.busuanziCount">
+          Total views:
+          <span id="busuanzi_value_site_pv"></span>
+          |
+          Total visitors:
+          <span id="busuanzi_value_site_uv"></span>
+        </span>
       </div>
       <div class="right">
         <div class="footer-title power">Powered by</div>
@@ -68,6 +77,9 @@ export default {
       margin-bottom 10px
 
     .footer-text
+      font-size 12px
+
+    .footer-count
       font-size 12px
       margin-bottom 20px
 
