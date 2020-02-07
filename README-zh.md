@@ -50,10 +50,26 @@ git push origin -u source
 本小节将对本项目用到的各个配置项进行说明，这些配置项对定制化你的页面至关重要。
 
 #### `vssueConfig`
-评论系统配置，本项目使用 [Vssue]() 作为评论系统，`vssueConfig` 中的配置项与 [Vssue 文档](https://vssue.js.org/guide/github.html) 保持一致，请按照该文章进行配置，只需要注意 `repo` 一项填写你的 Github io 仓库名称即可；
+评论系统配置，本项目使用 [Vssue](https://vssue.js.org) 作为评论系统，`vssueConfig` 中的配置项与 [Vssue 文档](https://vssue.js.org/guide/github.html) 保持一致，请按照该文章进行配置，只需要注意 `repo` 一项填写你的 Github io 仓库名称即可；
+```js
+{
+  repo: String, // your github io repo name
+  owner: String, // your github id
+  clientId: String,
+  clientSecret: String
+}
+```
 
 #### `repoConfig`
 构建出的静态页面推送配置，其中 `repo` 和 `owner` 应与 `vssueConfig` 中保持一致，`pushBranch` 保留为 `master` 即可，`email` 填写为你的 Github 账号绑定的邮箱，用于填写 commit message。
+```js
+{
+  repo: String, // same as vssueConfig.repo
+  owner: String, // same as vssueConfig.owner
+  pushBranch: String, // which branch to deploy static pages, default is 'master'
+  email: String // your email of github account, just for commit message
+}
+```
 
 #### `title`
 网站标题。
@@ -69,6 +85,12 @@ git push origin -u source
 
 #### `slogan`
 网站首页的文字，`main` 为第一行，`sub` 为第二行，不建议留空。
+```js
+{
+  main: String, // top line
+  sub: String // bottom line
+}
+```
 
 #### `themeConfig`
 主题的配置，其中各个配置项的作用为：
@@ -76,6 +98,23 @@ git push origin -u source
 - `headTitle`：头部文字，可留空；
 - `friendLinks`：底部友情链接，数组类型，结构与 `nav` 保持一致；
 - `extraFooters`：底部额外信息项，数组类型，结构为 `[{ title: String, text: String }]`，可存放网站备案号等信息。
+```js
+{
+  nav: [{
+    name: String,
+    link: String
+  }], // navigation
+  headTitle: [String], // Decorative texts in site header
+  friendLinks: [{
+    name: String,
+    link: String
+  }], // friend links in bottom footer
+  extraFooters: [{
+    title: String,
+    text: String
+  }] // extra texts in bottom footer
+}
+```
 
 #### `head`
 这里存放了一些元信息，详情可见 [vuepress 关于此项的说明](https://vuepress.vuejs.org/zh/config/#head)，配置文件中的前两项不要改动，第三项是网站 icon，可以自行修改。
@@ -96,6 +135,7 @@ cp ./tools/config.template.js ./tools/config.js
 
 # 2. 安装必要的依赖项
 yarn add
+yarn add global vuepress
 
 # 3. 拉取 issue 并保存在本地
 yarn run local
