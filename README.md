@@ -61,7 +61,7 @@ Finally, edit `/src/.vuepress/custom.js` to config your site, please follow [thi
 Config for comment system, we use [Vssue](https://vssue.js.org), so this part is same as [Vssue doc](https://vssue.js.org/guide/github.html).
 ```js
 {
-  repo: String, // your github io repo name
+  repo: String, // your github.io repo name
   owner: String, // your github id
   clientId: String,
   clientSecret: String

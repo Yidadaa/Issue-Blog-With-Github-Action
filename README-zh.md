@@ -63,10 +63,10 @@ git push origin -u source
 本小节将对本项目用到的各个配置项进行说明，这些配置项对定制化你的页面至关重要。
 
 #### `vssueConfig`
-评论系统配置，本项目使用 [Vssue](https://vssue.js.org) 作为评论系统，`vssueConfig` 中的配置项与 [Vssue 文档](https://vssue.js.org/guide/github.html) 保持一致，请按照该文章进行配置，只需要注意 `repo` 一项填写你的 Github io 仓库名称即可；
+评论系统配置，本项目使用 [Vssue](https://vssue.js.org) 作为评论系统，`vssueConfig` 中的配置项与 [Vssue 文档](https://vssue.js.org/guide/github.html) 保持一致，请按照该文章进行配置，只需要注意 `repo` 一项填写你的 `github.io` 仓库名称即可；
 ```js
 {
-  repo: String, // your github io repo name
+  repo: String, // your github.io repo name
   owner: String, // your github id
   clientId: String,
   clientSecret: String
@@ -139,7 +139,7 @@ git push origin -u source
 本项目提供了一个样例简历，可以直接在该简历基础上进行修改，直接编辑 `/src/cv.md` 即可，该配置使用 `yaml` 语法。
 
 ### 开始书写博客
-1. 在你的 Github io 仓库的 Issue 区新开一个 Issue，书写博客内容并保存，Github Actions 会自动触发并构建新增的博文；
+1. 在你的 `github.io` 仓库的 Issue 区新开一个 Issue，书写博客内容并保存，Github Actions 会自动触发并构建新增的博文；
 2. 你可以使用 Issue 的 `milestone` 来归档博文，可以查看作者的[样例](https://github.com/Yidadaa/Yidadaa.github.io/milestones)；
 3. 你可以在仓库的 Actions 选项卡中查看构建进度。
 
