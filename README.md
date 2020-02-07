@@ -24,7 +24,19 @@ An easy-to-use, serverless-deploying, github-based blog theme.
 ## How to Use
 Below are just some of the methods for installing ISSUE BLOG. Do not follow all of these instructions; just pick your favorite one.
 
-### Simple Installation
+### Simple Installation (without Fork)
+``` bash
+.github
+ |- workflow
+    |- custom.js # site config
+    |- cv.md # resume config
+    |- main.yml # github actions config
+```
+1. Create the above files in your github.io repo, you can find the templates of these files at [`./template`](./template);
+2. Edit `custom.js` and `cv.md` according to [Config Reference](###Config-Reference);
+3. Edit `main.yml`, replace all `<your-github-name>` placeholder to your github account id.
+
+### Common Installation (with Fork)
 1. Fork this project, and rename to <your-github-name>.github.io;
 2. Edit `/src/.vuepress/custom.js` to config your site, follow [this section](###Config-Reference).
 

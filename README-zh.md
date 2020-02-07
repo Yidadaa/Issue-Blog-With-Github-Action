@@ -24,6 +24,19 @@
 无论你是编程新手还是老鸟，本项目都提供了多种配置方式供你使用，可以根据自身情况选择安装方式。
 
 ### 最简安装
+本小节面向懒得点 `Fork` 按钮的新手以及懒得在命令行中使用 Git 的老鸟。
+``` bash
+.github
+ |- workflow
+    |- custom.js # 项目配置文件
+    |- cv.md # 简历模板配置文件
+    |- main.yml # github actions 配置文件
+```
+1. 按照如上结构在你的 Github.io 仓库目录中新建文件，这三个文件的模板均可以在 [`./temlate`](./template) 目录中找到；
+2. 按照[配置说明](###配置说明)修改 `custom.js` 和 `cv.md`；
+3. 修改 `main.yml` 中的 `<your-github-name>` 为你的 Github ID。
+
+### 普通安装
 本小节内容面向对 Github 不熟悉的新手，在阅读本节之前，请确保你已经注册有自己的 Github 账号并已登录，如果你已经拥有了一个 Github.io 仓库，请移步其他配置步骤。
 1. 点击本项目右上角的 `Fork` 按钮，获取本项目的备份；
 2. 在自己的 Github 仓库页，找到上一步 `Fork` 出来的仓库，在仓库的 `Settings` 页面，将项目名称重命名为符合 Github Pages 要求的名字格式，以作者为例，作者的 Github ID 是 `Yidadaa`，则仓库名字应该为 `Yidadaa.github.io`；
@@ -124,7 +137,8 @@ git push origin -u source
 
 ### 开始书写博客
 1. 在你的 Github io 仓库的 Issue 区新开一个 Issue，书写博客内容并保存，Github Actions 会自动触发并构建新增的博文；
-2. 你可以使用 Issue 的 `milestone` 来归档博文，可以查看作者的[样例](https://github.com/Yidadaa/Yidadaa.github.io/milestones)。
+2. 你可以使用 Issue 的 `milestone` 来归档博文，可以查看作者的[样例](https://github.com/Yidadaa/Yidadaa.github.io/milestones)；
+3. 你可以在仓库的 Actions 选项卡中查看构建进度。
 
 ## 开发
 在本地开发之前，请先在[此处](https://github.com/settings/tokens)新增一个用于调试的 token 备用，然后按照以下步骤进行开发：
