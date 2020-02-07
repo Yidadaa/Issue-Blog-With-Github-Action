@@ -73,17 +73,4 @@ let mainConfig = {
   ]
 }
 
-// merge env to config
-if (process && process.env) {
-  let custom = process.env.custom
-  try {
-    if (typeof(custom) === 'string') custom = JSON.parse(custom)
-  } catch (error) {
-    console.error(error)
-  }
-  Object.keys(custom).forEach(v => {
-    if (mainConfig[v]) mainConfig[v] = custom[v]
-  })
-}
-
 module.exports = mainConfig
