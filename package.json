@@ -18,6 +18,7 @@
     "local": "cross-env NODE_ENV=local node ./tools/run.js",
     "action": "cross-env NODE_ENV=action node ./tools/run.js",
     "push": "cross-env NODE_ENV=local node ./tools/deploy.js",
-    "deploy": "cross-env NODE_ENV=action node ./tools/deploy.js"
+    "deploy": "cross-env NODE_ENV=action node ./tools/deploy.js",
+    "test-env": "cross-env custom={\\\"base\\\":\\\"/\\\"} vuepress dev ./src"
   }
 }

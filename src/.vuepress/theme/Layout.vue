@@ -20,7 +20,7 @@
         <PostCard v-for="(post, index) in posts" v-bind:key="index"
           v-bind:title="post.title" v-bind:desc="post.desc"
           v-bind:tag="post.tag" v-bind:date="post.date"
-          v-bind:number="post.number"/>
+          v-bind:number="post.number" v-bind:link="post.link"/>
       </div>
       <div class="side">
         <div class="side-category">

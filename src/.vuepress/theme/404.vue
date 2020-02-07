@@ -4,7 +4,7 @@
     <div class="page">
       <div class="text">404</div>
       <div class="button-wrap">
-        <a class="button" href="/">Take Me Home</a>
+        <a class="button" v-bind:href="home">Take Me Home</a>
       </div>
       <div class="colors" :style="`transform: translateX(${x}px) translateY(${y}px);`">
         <div class="color"></div>
@@ -23,7 +23,8 @@ export default {
   data () {
     return {
       x: 0,
-      y: 0
+      y: 0,
+      home: '/'
     }
   },
 
@@ -40,6 +41,8 @@ export default {
 
     document.body.onmousemove = changeCB
     document.body.ontouchmove = changeCB
+
+    this.home = this.$themeConfig.base
   }
 }
 </script>

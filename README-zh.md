@@ -27,7 +27,7 @@
 本小节内容面向对 Github 不熟悉的新手，在阅读本节之前，请确保你已经注册有自己的 Github 账号并已登录，如果你已经拥有了一个 Github.io 仓库，请移步其他配置步骤。
 1. 点击本项目右上角的 `Fork` 按钮，获取本项目的备份；
 2. 在自己的 Github 仓库页，找到上一步 `Fork` 出来的仓库，在仓库的 `Settings` 页面，将项目名称重命名为符合 Github Pages 要求的名字格式，以作者为例，作者的 Github ID 是 `Yidadaa`，则仓库名字应该为 `Yidadaa.github.io`；
-3. 注意到项目的默认 `Branch` 是 `source`，这是因为 Github 默认使用 `master` 分支作为 Github Pages 主页，所以本项目将源码托管在 `source` 分支，在项目中找到 `/src/.vuepress/config.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](###配置说明)。
+3. 注意到项目的默认 `Branch` 是 `source`，这是因为 Github 默认使用 `master` 分支作为 Github Pages 主页，所以本项目将源码托管在 `source` 分支，在项目中找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](###配置说明)。
 
 ### 自定义安装
 本小节面向有 Github 使用经验，并且已经拥有自己的 Github Pages 的用户。
@@ -44,7 +44,7 @@ git remote set-url origin your-remote-github.io-repo.git
 git push origin -u source
 ```
 
-经过以上步骤后，去远程仓库的浏览器页面，找到 `Settings -> Branches`，修改 `Default branch` 为刚刚推送的 `source` 分支，然后找到 `/src/.vuepress/config.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](###配置说明)。
+经过以上步骤后，去远程仓库的浏览器页面，找到 `Settings -> Branches`，修改 `Default branch` 为刚刚推送的 `source` 分支，然后找到 `/src/.vuepress/custom.js` 文件进行编辑，即可开始配置，各配置项说明见[配置说明](###配置说明)。
 
 ### 配置说明
 本小节将对本项目用到的各个配置项进行说明，这些配置项对定制化你的页面至关重要。
@@ -117,7 +117,7 @@ git push origin -u source
 ```
 
 #### `head`
-这里存放了一些元信息，详情可见 [vuepress 关于此项的说明](https://vuepress.vuejs.org/zh/config/#head)，配置文件中的前两项不要改动，第三项是网站 icon，可以自行修改。
+这里存放了一些元信息，详情可见 [vuepress 关于此项的说明](https://vuepress.vuejs.org/zh/config/#head)，可以在此处添加网站 icon。
 
 ### 简历模板的配置
 本项目提供了一个样例简历，可以直接在该简历基础上进行修改，直接编辑 `/src/cv.md` 即可，该配置使用 `yaml` 语法。

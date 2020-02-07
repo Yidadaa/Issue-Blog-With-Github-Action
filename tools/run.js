@@ -1,7 +1,7 @@
 const github = require('@actions/github')
 const fs = require('fs')
 const path = require('path')
-const { repoConfig, slogan } = require('../src/.vuepress/config')
+const { repoConfig, slogan, base } = require('../src/.vuepress/config')
 
 const { owner, repo } = repoConfig
 const issueFile = path.resolve(__dirname, './issues.json')
@@ -48,7 +48,7 @@ function formatDocument(rawData) {
 
   // process post file
   data.forEach((issue, i) => {
-    log(`[proessing ${i} of ${data.length}] ${issue.number}.${issue.title}`)
+    log(`[processing ${i + 1} of ${data.length}] ${issue.number}.${issue.title}`)
     const fm = [`layout: PostLayout`,
       `id: ${issue.number}`,
       `date: ${fmtDate(issue.created_at)}`,
@@ -71,9 +71,10 @@ function processPost(data) {
     return {
       title: issue.title,
       desc: issue.body.slice(0, 200),
-      tag: issue.milestone.title,
+      tag: issue.milestone ? issue.milestone.title : '',
       date: fmtDate(issue.created_at),
-      number: issue.number
+      number: issue.number,
+      link: `${base}posts/${issue.number}`
     }
   })
 
@@ -94,7 +95,7 @@ function processCategory(rawData) {
       name: m.title,
       count: m.open_issues,
       desc: m.description,
-      link: `/categories/${m.title}`
+      link: `${base}categories/${m.title}`
     }
   })
 
