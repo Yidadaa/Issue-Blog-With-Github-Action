@@ -37,8 +37,8 @@ Below are just some of the methods for installing ISSUE BLOG. Do not follow all 
 3. Edit `main.yml`, replace all `<your-github-name>` placeholder to your github account id.
 
 ### Common Installation (with Fork)
-1. Fork this project, and rename to <your-github-name>.github.io;
-2. Edit `/src/.vuepress/custom.js` to config your site, follow [this section](#config-reference).
+1. Fork this project, and rename it to `<your-github-name>.github.io`;
+2. Edit `/src/.vuepress/custom.js` to config your site, follow [Config Reference](#config-reference).
 
 ### Custom Installation
 If you don't want to override your existing github.io repo, you can push the code to the `source` branch of your repo.
@@ -147,8 +147,8 @@ yarn run dev
 You can refer [vuepress doc](https://vuepress.vuejs.org/) for more details.
 
 ## FAQ
-### 1. How to prevent others' issues to publish to my site?
-You can set `repoConfig.filterUsers` to allow specific users to publish blogs.
+### 1. How to prevent others from publishing issues to the site?
+You can set a white-list by setting `repoConfig.filterUsers` to `['Your Github ID', 'Another Friend's ID']`, default setting allows everyone to post a blog to your site.
 
 ## Acknowledgment
 This project is based on [vuepress](https://vuepress.vuejs.org/).
