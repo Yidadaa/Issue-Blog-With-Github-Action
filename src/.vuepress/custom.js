@@ -60,7 +60,7 @@ let mainConfig = {
         text: "@ 蜀 ICP 备 19000509 号 - 1"
       }
     ],
-    busuanziCount: true
+    pageCount: true
   },
 
   head: [

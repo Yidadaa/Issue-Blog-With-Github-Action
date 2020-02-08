@@ -117,7 +117,8 @@ Config for site theme.
   extraFooters: [{
     title: String,
     text: String
-  }] // extra texts in bottom footer
+  }], // extra texts in bottom footer
+  pageCount: true // whether to show page report on footer or not
 }
 ```
 
@@ -151,4 +152,5 @@ You can refer [vuepress doc](https://vuepress.vuejs.org/) for more details.
 You can set a white-list by setting `repoConfig.filterUsers` to `['Your Github ID', 'Another Friend's ID']`, default setting allows everyone to post a blog to your site.
 
 ## Acknowledgment
-This project is based on [vuepress](https://vuepress.vuejs.org/).
+- This project is based on [vuepress](https://vuepress.vuejs.org/).
+- Visitor report is powered by [busuanzi](http://busuanzi.ibruce.info/).

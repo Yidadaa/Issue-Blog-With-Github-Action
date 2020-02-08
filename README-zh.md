@@ -113,7 +113,8 @@ git push origin -u source
 - `nav`：头部导航栏，数组类型，结构为 `[{ name: String, link: String }]`；
 - `headTitle`：头部文字，可留空；
 - `friendLinks`：底部友情链接，数组类型，结构与 `nav` 保持一致；
-- `extraFooters`：底部额外信息项，数组类型，结构为 `[{ title: String, text: String }]`，可存放网站备案号等信息。
+- `extraFooters`：底部额外信息项，数组类型，结构为 `[{ title: String, text: String }]`，可存放网站备案号等信息；
+- `pageCount`：是否在页脚显示 pv、uv 等信息，网页计数功能由 [busuanzi](http://busuanzi.ibruce.info/) 提供。
 ```js
 {
   nav: [{
@@ -128,7 +129,8 @@ git push origin -u source
   extraFooters: [{
     title: String,
     text: String
-  }] // extra texts in bottom footer
+  }], // extra texts in bottom footer
+  pageCount: true // whether to show page report on footer or not
 }
 ```
 
@@ -167,4 +169,5 @@ yarn run dev
 你可以配置 `repoConfig.filterUsers` 字段来设置白名单。
 
 ## 鸣谢
-本项目基于 [vuepress](https://vuepress.vuejs.org/) 开发.
+- 本项目基于 [vuepress](https://vuepress.vuejs.org/) 开发。
+- 网页计数功能由 [busuanzi](http://busuanzi.ibruce.info/) 提供。

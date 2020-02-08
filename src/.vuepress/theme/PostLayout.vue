@@ -9,7 +9,7 @@
     <div class="info">
       <div class="author">{{$frontmatter.author}}</div>
       <div class="date">{{$frontmatter.date}}</div>
-      <div class="count" v-if="$themeConfig.busuanziCount">
+      <div class="count" v-if="$themeConfig.pageCount">
         <span id="busuanzi_value_page_pv"></span>
         <span>views</span>
       </div>

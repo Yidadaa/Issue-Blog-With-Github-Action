@@ -6,19 +6,23 @@
         <div class="links footer-text">
           <a :href="link.link" class="link" v-for="link in friendLinks">{{ link.name }}</a>
         </div>
+        <div class="footer-title" v-if="$themeConfig.pageCount">Visitor Report</div>
+        <div class="footer-text" v-if="$themeConfig.pageCount">
+          <span id="busuanzi_container_site_pv" class="footer-count">
+            <div>
+              <span class="count-title">Total PV</span>
+              <span id="busuanzi_value_site_pv"></span>
+            </div>
+            <div>
+              <span class="count-title">Total UV</span>
+              <span id="busuanzi_value_site_uv"></span>
+            </div>
+          </span>
+        </div>
         <div v-for="(f) in extraFooters">
           <div class="footer-title">{{ f.title }}</div>
           <div class="footer-text">{{ f.text }}</div>
         </div>
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" v-if="$themeConfig.busuanziCount">
-        </script>
-        <span id="busuanzi_container_site_pv" class="footer-count" v-if="$themeConfig.busuanziCount">
-          Total views:
-          <span id="busuanzi_value_site_pv"></span>
-          |
-          Total visitors:
-          <span id="busuanzi_value_site_uv"></span>
-        </span>
       </div>
       <div class="right">
         <div class="footer-title power">Powered by</div>
@@ -53,10 +57,10 @@ export default {
   color #fff
   .footer-content
     padding 20px 0
-    color #fff
     display flex
     flex-wrap wrap
     justify-content space-between
+    color rgba(255, 255, 255, 0.6)
 
     .power
       font-style italic
@@ -75,21 +79,25 @@ export default {
     .footer-title
       font-size 14px
       margin-bottom 10px
+      font-weight bold
+      color rgba(255, 255, 255, 0.8)
 
     .footer-text
       font-size 12px
+      margin-bottom 20px
 
     .footer-count
       font-size 12px
       margin-bottom 20px
+      .count-title
+        margin-right 5px
 
     .links
       a.link
         margin-right 20px
-        color #ffffff
-        border 1px solid #fff
-        padding 2px 10px
-        border-radius 20px
+        color rgba(255, 255, 255, 0.6)
+        margin-right 10px
+        text-decoration underline
         &:hover
           background-color #fff
           color #000

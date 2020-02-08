@@ -19,6 +19,14 @@ module.exports = {
         href: "https://cdn.bootcss.com/KaTeX/0.5.1/katex.min.css"
       }
     ],
+    [
+      "script",
+      {
+        charset: "utf-8",
+        src: "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",
+        async: true
+      }
+    ],
     ...customConfig.head
   ],
 
