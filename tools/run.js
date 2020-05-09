@@ -74,7 +74,7 @@ function processPost(data) {
       tag: issue.milestone ? issue.milestone.title : '',
       date: fmtDate(issue.created_at),
       number: issue.number,
-      link: `${base}posts/${issue.number}`
+      link: `${base}posts/${issue.number}.html`
     }
   })
 
@@ -95,7 +95,7 @@ function processCategory(rawData) {
       name: m.title,
       count: m.open_issues,
       desc: m.description,
-      link: `${base}categories/${m.title}`
+      link: `${base}categories/${m.title}.html`
     }
   })
 
