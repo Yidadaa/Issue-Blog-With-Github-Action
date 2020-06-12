@@ -28,7 +28,7 @@ async function main() {
     fs.writeFile(path.resolve(distPath, 'CNAME'), customDomain, () => console.log('[host] on ' + customDomain))
   }
 
-  const remote = `https://${actor}:${token}@github.com/Yidadaa/${repo}.git`
+  const remote = `https://${actor}:${token}@github.com/${owner}/${repo}.git`
 
   console.log(`[remote] ${remote}`)
 
