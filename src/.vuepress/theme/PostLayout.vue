@@ -218,7 +218,6 @@ th, td
 
 img
   max-width 720px
-  width 100%
   margin auto
   display block
   border 1px solid rgba(0, 0, 0, 0.1)
