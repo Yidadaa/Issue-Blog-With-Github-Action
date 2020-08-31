@@ -56,8 +56,8 @@ let mainConfig = {
     ],
     extraFooters: [
       {
-        title: "",
-        text: "@ 蜀 ICP 备 19000509 号 - 1"
+        title: "@ 蜀 ICP 备 19000509 号 - 1",
+        text: ""
       }
     ],
     pageCount: true
