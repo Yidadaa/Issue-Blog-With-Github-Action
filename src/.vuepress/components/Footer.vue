@@ -65,7 +65,7 @@ export default {
       const pv = dom.firstChild.textContent
       const uv = dom.lastChild.textContent
       dom.style.display = 'none'
-      const total = Math.max(pv.length, uv.length, 4)
+      const total = Math.max(pv.length, uv.length, 6)
       vueThis.pvNumber = new Array(total - pv.length).fill('0').join('') + pv
       vueThis.uvNumber = new Array(total - uv.length).fill('0').join('') + uv
     })
