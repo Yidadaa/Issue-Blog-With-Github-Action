@@ -22,7 +22,7 @@ An easy-to-use, serverless-deploying, github-based blog theme.
 - Build your personal homepage in **3 minutes**.
 
 ## Why ISSUE BLOG?
-You may have used Hexo, Jekyll or Hugo to write your blogs, they are free and have lots of pretty themes, but you must have the same question as I that why all of those tools must be used at a local shell? Posting an article needs a shell, pulishing the built pages needs a shell... Come on, I just want to find somewhere to place my words! Can I do these writing stuff in a web browser, just like a normal writer? The answer is YES! And that's why I create this project, with ISSUE BLOG, a web browser is the only tool you need to use to setup, deploy and write your personal blog. 
+With ISSUE BLOG, a web browser is the only tool you need to use to setup, deploy and write your personal blog. 
 
 ## How to Use
 Below are just some of the methods for installing ISSUE BLOG. Do not follow all of these instructions; just pick your favorite one.
