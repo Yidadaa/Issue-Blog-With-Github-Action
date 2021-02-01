@@ -17,6 +17,7 @@ export default {
       },
       posts: [],
       categories: [],
+      should404: false,
     };
   },
 
@@ -24,9 +25,18 @@ export default {
     Home,
   },
 
-  mounted() {
+  fetch() {
+    // check if category exists
+    if (!this.$route.params.id) return (this.should404 = true);
     const id = this.$route.params.id.split(".")[0];
-    Object.entries(cateData[id]).forEach(([k, v]) => (this[k] = v));
+    const cate = cateData[id];
+    if (!cate) return (this.should404 = true);
+
+    Object.entries(cate).forEach(([k, v]) => (this[k] = v));
   },
+
+  mounted() {
+    if (this.should404) location.href = '/404';
+  }
 };
 </script>

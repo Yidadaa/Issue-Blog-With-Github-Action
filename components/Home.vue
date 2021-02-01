@@ -30,6 +30,13 @@
         </div>
         <div class="side">
           <div class="side-category">
+            <Category
+              v-if="categories.length"
+              :name="summary.name"
+              :count="summary.count"
+              :desc="summary.desc"
+              :link="summary.link"
+            />
             <LoadingCategory v-if="!categories.length" />
             <Category
               v-else
@@ -50,7 +57,7 @@
 </template>
 
 <script>
-import config from "@config/custom";
+import config from "@config/global";
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -59,21 +66,31 @@ import PostCard from "./PostCard";
 import LoadingCard from "./LoadingCard";
 import LoadingCategory from "./LoadingCategory";
 
-
 export default {
   props: {
     slogan: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     posts: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     categories: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
+  },
+
+  computed: {
+    summary() {
+      return {
+        name: config.text.cateSummaryTitle,
+        desc: config.text.cateSummaryDesc(this.posts.length),
+        count: this.posts.length,
+        link: config.base,
+      };
+    },
   },
 
   components: {
@@ -91,22 +108,6 @@ export default {
       if (!node) return;
       node.style.display = "none";
     });
-  },
-
-  mounted() {
-    // TODO: fix loading post logic
-    return;
-    this.posts = this.$frontmatter.posts;
-
-    const count = this.posts.length;
-    this.categories = [
-      {
-        name: "总览",
-        count,
-        desc: `共发布了 ${count} 篇文章。`,
-        link: `/`,
-      },
-    ].concat(this.$frontmatter.categories);
   },
 };
 </script>

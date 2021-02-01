@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import config from '@config/custom'
+import config from '@config/global'
 
 export default {
   data() {

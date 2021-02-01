@@ -4,5 +4,5 @@
  */
 
 module.exports = {
-  token: 'b967fd7d7cd9baccb5677b6fe104f94057b79991' // your develop token here
+  token: "" // your develop token here
 }

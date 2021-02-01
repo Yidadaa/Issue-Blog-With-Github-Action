@@ -1,7 +1,7 @@
 const github = require('@actions/github')
 const fs = require('fs')
 const path = require('path')
-let { repoConfig, slogan, base } = require('../config/custom')
+let { repoConfig, slogan, base } = require('../config/global')
 
 // render markdown
 const hljs = require('highlight.js')

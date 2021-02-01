@@ -17,8 +17,11 @@ export default {
       },
       posts: [],
       categories: [],
-      ...homeData,
     };
+  },
+
+  fetch() {
+    Object.entries(homeData).map(([k, v]) => this[k] = v)
   },
 
   components: {

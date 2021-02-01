@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import config from "@config/custom";
+import config from "@config/global";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";

@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { readdirSync, lstatSync, link } from 'fs'
 import postData from './tools/data/posts.json'
 import cateData from './tools/data/categories.json'
-import config from './config/custom'
+import config from './config/global'
 
 // set folders in root dir alias
 const ignoreFolders = new Set(['.nuxt', 'node_modules'])
