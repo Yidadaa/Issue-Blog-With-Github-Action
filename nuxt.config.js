@@ -6,11 +6,11 @@ import config from './config/custom'
 
 // set folders in root dir alias
 const ignoreFolders = new Set(['.nuxt', 'node_modules'])
-const rootFolderAlias = readdirSync(resolve(__dirname))
-  .filter(v => !ignoreFolders.has(v))
-  .map(v => [`@${v}`, resolve(__dirname, v)])
-  .filter(([alias, path]) => lstatSync(path).isDirectory())
-  .reduce((pre, [alias, path]) => ({ ...pre, [alias]: path }), {})
+const rootFolderAlias = readdirSync(resolve(__dirname)) // read files
+  .filter(v => !ignoreFolders.has(v)) // ignore folders
+  .map(v => [`@${v}`, resolve(__dirname, v)]) // get full path
+  .filter(([alias, path]) => lstatSync(path).isDirectory()) // filter folders
+  .reduce((pre, [alias, path]) => ({ ...pre, [alias]: path }), {}) // make alias
 
 // config static pages
 const rawData = {
@@ -33,7 +33,7 @@ export default {
       {
         charset: "utf-8",
         src:
-          "//cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js",
+          "//cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js", // page count service
         async: true,
       },
     ],
