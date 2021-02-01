@@ -1,15 +1,31 @@
 const github = require('@actions/github')
 const fs = require('fs')
 const path = require('path')
-const { repoConfig, slogan, base } = require('../src/.vuepress/config')
+let { repoConfig, slogan, base } = require('../config/custom')
+
+// render markdown
+const hljs = require('highlight.js')
+const md = require('markdown-it')({
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre class="hljs"><code>' +
+          hljs.highlight(lang, str, true).value +
+          '</code></pre>';
+      } catch (__) { }
+    }
+    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+  }
+}).use(require('@iktakahiro/markdown-it-katex')).use(require('markdown-it-task-checkbox'))
 
 const { owner, repo } = repoConfig
-const issueFile = path.resolve(__dirname, './issues.json')
-const cateFile = path.resolve(__dirname, './cates.json')
+const issueFile = path.resolve(__dirname, './data/issues-raw.json')
+const cateFile = path.resolve(__dirname, './data/cates-raw.json')
 
 let token = null
 if (process.env.NODE_ENV == 'local') {
   token = require('./config').token
+  base = '/'
 } else if (process.env.NODE_ENV == 'action') {
   token = process.env.GITHUB_TOKEN
 } else {
@@ -44,19 +60,24 @@ function formatDocument(rawData) {
   const data = rawData
   log(`[summary] ${data.length} issues`)
 
-  const postPath = path.resolve(__dirname, '../src/posts')
+  const postPath = path.resolve(__dirname, './data')
 
   // process post file
-  data.forEach((issue, i) => {
+  const postData = data.map((issue, i) => {
     log(`[processing ${i + 1} of ${data.length}] ${issue.number}.${issue.title}`)
-    const fm = [`layout: PostLayout`,
-      `id: ${issue.number}`,
-      `date: ${fmtDate(issue.created_at)}`,
-      `author: ${issue.user.login}`
-    ].join('\n')
-    const markdownText = `---\n${fm}\n---\n# ${issue.title}\n\n${issue.body}`
-    fs.writeFile(path.resolve(postPath, `./${issue.number}.md`), markdownText, () => {})
-  })
+    return {
+      id: issue.number,
+      date: fmtDate(issue.created_at),
+      author: issue.user.login,
+      title: issue.title,
+      mdContent: issue.body,
+      content: md.render(issue.body)
+    }
+  }).reduce((pre, cur) => ({
+    ...pre,
+    [cur.id]: cur
+  }), {})
+  fs.writeFile(path.resolve(postPath, `./posts.json`), JSON.stringify(postData), () => { })
 
   log('[post] issues have been written to md files.')
 }
@@ -74,7 +95,7 @@ function processPost(data) {
       tag: issue.milestone ? issue.milestone.title : '',
       date: fmtDate(issue.created_at),
       number: issue.number,
-      link: `${base}posts/${issue.number}.html`
+      link: `${base}posts/${issue.number}`
     }
   })
 
@@ -92,10 +113,11 @@ function processCategory(rawData) {
 
   const mData = data.map(m => {
     return {
+      id: m.number,
       name: m.title,
       count: m.open_issues,
       desc: m.description,
-      link: `${base}categories/${m.title}.html`
+      link: `${base}categories/${m.number}`
     }
   })
 
@@ -103,7 +125,7 @@ function processCategory(rawData) {
 }
 
 async function download() {
-  const tools = new github.GitHub(token)
+  const tools = new github.getOctokit(token)
 
   log('[download] requesting issues')
   try {
@@ -130,7 +152,8 @@ async function download() {
 
   log('[download] requesting milestones')
   try {
-    const cates = await tools.issues.listMilestonesForRepo({
+    // console.log(tools.issues)
+    const cates = await tools.issues.listMilestones({
       owner, repo
     })
 
@@ -150,6 +173,7 @@ async function download() {
  * @param {Array} milestones milestone list
  */
 function writeHomePageReadMe(issues, milestones) {
+  const outputPath = path.resolve(__dirname, './data')
   const postsData = processPost(issues)
   const mData = processCategory(milestones)
   log('[writing] writing data to ReadMe')
@@ -159,9 +183,7 @@ function writeHomePageReadMe(issues, milestones) {
     posts: postsData,
     categories: mData
   })
-  const readMeText = `---\n${readMeMeta}\n---`
-  const readmePath = path.resolve(__dirname, '../src')
-  fs.writeFile(path.resolve(readmePath, './README.md'), readMeText, () => {})
+  fs.writeFile(path.resolve(outputPath, './home.json'), readMeMeta, () => { })
 
   // group issues by milestone
   let issuesGounpByMs = {}
@@ -181,20 +203,11 @@ function writeHomePageReadMe(issues, milestones) {
   })
 
   // write milestones
-  const mPath = path.resolve(__dirname, '../src/categories')
-  const files = fs.readdirSync(mPath)
-  // delete old files
-  files.forEach(filename => {
-    if (filename.endsWith('md')) {
-      fs.unlinkSync(path.resolve(mPath, filename), () => {})
-    }
-  })
-
   log('[writing] writing categories')
-  // write new files
-  milestones.forEach(m => {
+  const catesData = milestones.map(m => {
     const issueData = processPost(m.issues)
     const mRawData = {
+      id: m.number,
       slogan: {
         main: m.title,
         sub: m.description
@@ -202,9 +215,13 @@ function writeHomePageReadMe(issues, milestones) {
       posts: issueData,
       categories: mData
     }
-    const mText = ['---', JSON.stringify(mRawData), '---'].join('\n')
-    fs.writeFile(path.resolve(mPath, `${m.title}.md`), mText, () => {})
-  })
+    return mRawData
+  }).reduce((pre, cur) => ({
+    ...pre,
+    [cur.id.toString()]: cur
+  }), {})
+
+  fs.writeFile(path.resolve(outputPath, './categories.json'), JSON.stringify(catesData), () => { })
 }
 
 async function saveToFile() {
