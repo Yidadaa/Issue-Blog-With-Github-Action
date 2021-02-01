@@ -27,7 +27,7 @@
 
 <script>
 import mediumZoom from "medium-zoom";
-import config from "@config/custom";
+import config from "@config/global";
 import github from '@vssue/api-github-v4';
 
 import Header from "@components/Header";
@@ -66,8 +66,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.should404)
-    if (this.should404) location.href = '/404'
+    if (this.should404) location.href = '/404';
 
     // use mediumZoom to improve image viewer experience
     this.zoom = mediumZoom("p img");
