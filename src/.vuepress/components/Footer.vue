@@ -29,7 +29,10 @@
 
         <div v-for="(f) in extraFooters">
           <div class="footer-title">{{ f.title }}</div>
-          <div class="footer-text">{{ f.text }}</div>
+          <a v-if="f.link" class="link" :href="f.link">
+            <div class="footer-text">{{ f.text }}</div>
+          </a>
+          <div class="footer-text" v-else>{{ f.text }}</div>
         </div>
       </div>
       <div class="right">
