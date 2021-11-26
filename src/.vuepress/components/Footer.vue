@@ -27,9 +27,9 @@
           </div>
         </div>
 
-        <div v-for="(f) in extraFooters">
+        <div v-for="(f) in extraFooters" class="extra-text">
           <div class="footer-title">{{ f.title }}</div>
-          <a v-if="f.link" class="link" :href="f.link">
+          <a v-if="f.link" class="extra-link" :href="f.link">
             <div class="footer-text">{{ f.text }}</div>
           </a>
           <div class="footer-text" v-else>{{ f.text }}</div>
@@ -132,6 +132,13 @@ export default {
           background-color #fff
           color #000
 
+    .extra-text
+      .extra-link
+        color rgba(255, 255, 255, 0.6)
+        text-decoration: underline;
+        &:hover
+          background-color #fff
+          color #000
 
 .counter
   margin-bottom 10px

@@ -56,7 +56,7 @@ let mainConfig = {
     ],
     extraFooters: [
       {
-        title: "",
+        title: "ABOUT",
         text: "@ 蜀 ICP 备 19000509 号 - 1",
         link: "https://beian.miit.gov.cn/"
       }
