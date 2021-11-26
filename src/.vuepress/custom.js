@@ -56,8 +56,9 @@ let mainConfig = {
     ],
     extraFooters: [
       {
-        title: "@ 蜀 ICP 备 19000509 号 - 1",
-        text: ""
+        title: "",
+        text: "@ 蜀 ICP 备 19000509 号 - 1",
+        link: "https://beian.miit.gov.cn/"
       }
     ],
     pageCount: true
