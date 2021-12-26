@@ -5,7 +5,7 @@
     "markdown-it-katex": "^2.0.3",
     "markdown-it-task-checkbox": "^1.0.6",
     "medium-zoom": "^1.0.5",
-    "vue: "^2.6.11",
+    "vue": ^2.6.11",
     "vue-server-renderer": "^2.6.11"
   },
   "devDependencies": {
