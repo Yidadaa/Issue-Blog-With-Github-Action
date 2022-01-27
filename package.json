@@ -2,10 +2,13 @@
   "name": "issue-blog-test",
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
+    "nuxt-build": "nuxt build",
+    "build": "nuxt generate",
     "start": "nuxt start",
-    "local": "cross-env NODE_ENV=local node ./tools/run.js"
+    "local": "cross-env NODE_ENV=local node ./tools/run.js",
+    "action": "cross-env NODE_ENV=action node ./tools/run.js",
+    "push": "cross-env NODE_ENV=local node ./tools/deploy.js",
+    "deploy": "cross-env NODE_ENV=action node ./tools/deploy.js"
   },
   "dependencies": {
     "@actions/github": "^4.0.0",
@@ -19,9 +22,12 @@
     "vssue": "^1.4.7"
   },
   "devDependencies": {
+    "@actions/github": "^4.0.0",
     "@iktakahiro/markdown-it-katex": "^4.0.1",
     "cross-env": "^7.0.3",
     "highlight.js": "^10.5.0",
-    "markdown-it": "^12.0.4"
+    "markdown-it": "^12.0.4",
+    "shelljs": "^0.8.5",
+    "simple-git": "^3.1.1"
   }
 }

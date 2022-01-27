@@ -39,6 +39,9 @@ export default {
     ],
     link: links
   },
+  router: {
+    base: config.base || '/'
+  },
   generate: [...routes],
   plugins: [
     '@plugins/vssue.js'
