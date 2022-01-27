@@ -2,7 +2,7 @@ const Git = require('simple-git')
 const path = require('path')
 const shell = require('shelljs')
 const fs = require('fs')
-const { repoConfig, customDomain } = require('../config')
+const { repoConfig, customDomain } = require('../config/global')
 
 const { owner, repo, email, pushBranch } = repoConfig
 
