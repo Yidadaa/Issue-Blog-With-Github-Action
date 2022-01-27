@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="page">
+    <div class="page-404 page">
       <div class="text">404</div>
       <div class="button-wrap">
         <a class="button" v-bind:href="home">Take Me Home</a>
@@ -61,7 +61,7 @@ export default {
 <style lang="stylus">
 @import '@styles/common.styl';
 
-.page {
+.page-404 {
   position: relative;
   padding: 25vh 0;
   overflow: hidden;
