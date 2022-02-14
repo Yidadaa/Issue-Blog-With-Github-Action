@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@vssue/api-github-v4": "^1.4.0",
-    "@vssue/vuepress-plugin-vssue": "^1.4.2",
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-task-checkbox": "^1.0.6",
     "medium-zoom": "^1.0.5",
