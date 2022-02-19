@@ -32,6 +32,9 @@ export default {
     meta: [{
       name: 'referrer',
       content: 'no-referrer-when-downgrade'
+    }, {
+      name: 'viewport',
+      content: 'width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0'
     }],
     link: links,
   },
