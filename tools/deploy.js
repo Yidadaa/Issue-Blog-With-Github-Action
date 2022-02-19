@@ -47,7 +47,7 @@ async function main() {
     const repoPath = path.resolve(tmpPath, repo)
     // remove all old files
     shell.ls(repoPath).forEach(v => {
-      if (!v.endsWith('.github') && !v.endsWith('.git')) {
+      if (!v.endsWith('.github') && !v.endsWith('.git') && !v.endsWith('CNAME')) {
         console.log('[rm] removing ', v)
         shell.rm('-rf', path.resolve(repoPath, v))
       } else {
