@@ -70,7 +70,7 @@ function processPost(data) {
   const postsData = data.map(issue => {
     return {
       title: issue.title,
-      desc: issue.body.slice(0, 200),
+      desc: (issue.body || '').slice(0, 200),
       tag: issue.milestone ? issue.milestone.title : '',
       date: fmtDate(issue.created_at),
       number: issue.number,
