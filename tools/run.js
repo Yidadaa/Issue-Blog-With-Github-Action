@@ -6,6 +6,7 @@ let { repoConfig, slogan, base } = require('../config/global')
 // render markdown
 const hljs = require('highlight.js')
 const md = require('markdown-it')({
+  html: true,
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
