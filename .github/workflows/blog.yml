@@ -34,8 +34,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          wget https://raw.githubusercontent.com/Yidadaa/Yidadaa.github.io/master/.github/workflows/resume.json -O ./config/resume.json
-          wget https://raw.githubusercontent.com/Yidadaa/Yidadaa.github.io/master/.github/workflows/custom.js -O ./config/custom.js
           npm install vuepress
           npm install
           npm run action
