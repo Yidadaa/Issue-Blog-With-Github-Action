@@ -45,21 +45,19 @@ async function main() {
   Git(tmpPath).clone(remote, ['-b', pushBranch], () => {
     console.log('[git] clone done')
     const repoPath = path.resolve(tmpPath, repo)
-    // delete old files and copy new file
     // remove all old files
     shell.ls(repoPath).forEach(v => {
-      if (!v.endsWith('.github')) {
-        console.log('[rm] ', v)
+      if (!v.endsWith('.github') && !v.endsWith('.git')) {
+        console.log('[rm] removing ', v)
+        shell.rm('-rf', path.resolve(repoPath, v))
+      } else {
+        console.log('[rm] skipped ', v)
       }
     })
-    return;
+
     shell.ls(distPath).forEach(v => {
-      let gitFile = path.resolve(repoPath, v)
-      if (fs.existsSync(gitFile)) {
-        shell.rm('-rf', gitFile)
-      }
       shell.cp('-r', path.resolve(distPath, v), repoPath)
-      console.log(`[cp] ${gitFile}`)
+      console.log(`[cp] ${v}`)
     })
 
     console.log('[git] deploying...')
