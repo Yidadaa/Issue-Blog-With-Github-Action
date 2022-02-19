@@ -28,7 +28,7 @@
 <script>
 import mediumZoom from "medium-zoom";
 import config from "@config/global";
-import github from '@vssue/api-github-v4';
+import github from "@vssue/api-github-v4";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
@@ -66,7 +66,7 @@ export default {
   },
 
   mounted() {
-    if (this.should404) location.href = '/404';
+    if (this.should404) location.href = "/404";
 
     // use mediumZoom to improve image viewer experience
     this.zoom = mediumZoom("p img");
@@ -76,7 +76,6 @@ export default {
     const styles = [
       "//cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
       "//cdn.jsdelivr.net/npm/highlight.js@10.5.0/styles/github.css",
-      "//cdn.jsdelivr.net/npm/vssue@1.4.7/dist/vssue.css",
     ].map((v) => ({
       rel: "stylesheet",
       href: v,
@@ -92,11 +91,6 @@ export default {
 
 <style lang="stylus">
 @import '@styles/common.styl';
-
-$mainColor = darken(red, 20);
-$vssue-theme-color = $mainColor;
-
-@import '~vssue/src/styles/index'
 
 .post-page {
   margin-bottom: 50px;
@@ -364,7 +358,7 @@ img {
   }
 
   .vssue-button-login {
-    border-color: transparent!important;
+    border-color: transparent !important;
   }
 }
 

@@ -37,17 +37,25 @@ export default {
         async: true,
       },
     ],
-    link: links
+    meta: [{
+      name: 'referrer',
+      content: 'no-referrer-when-downgrade'
+    }],
+    link: links,
   },
   router: {
     base: config.base || '/'
   },
   generate: [...routes],
   plugins: [
-    '@plugins/vssue.js'
+    { src: '~/plugins/vssue', mode: 'client' }
   ],
+
+  // Vssue provides ES6 module, so we need to add it to the transpile build option
   build: {
-    transpile: ['vssue'],
+    transpile: [
+      'vssue',
+    ],
   },
   target: 'static',
 }
