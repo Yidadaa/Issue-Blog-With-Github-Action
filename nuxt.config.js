@@ -29,14 +29,6 @@ export default {
     ...rootFolderAlias
   },
   head: {
-    script: [
-      {
-        charset: "utf-8",
-        src:
-          "//cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js", // page count service
-        defer: true,
-      },
-    ],
     meta: [{
       name: 'referrer',
       content: 'no-referrer-when-downgrade'
@@ -51,7 +43,8 @@ export default {
     subFolders: false,
   },
   plugins: [
-    { src: '~/plugins/vssue', mode: 'client' }
+    { src: '~/plugins/vssue', mode: 'client' },
+    { src: '~/plugins/route', mode: 'client' },
   ],
 
   // Vssue provides ES6 module, so we need to add it to the transpile build option
