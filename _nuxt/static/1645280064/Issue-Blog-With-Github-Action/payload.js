@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/Issue-Blog-With-Github-Action", {data:[{}],fetch:{},mutations:void 0});
