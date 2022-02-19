@@ -34,7 +34,7 @@ export default {
         charset: "utf-8",
         src:
           "//cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js", // page count service
-        async: true,
+        defer: true,
       },
     ],
     meta: [{

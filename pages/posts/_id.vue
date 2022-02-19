@@ -81,9 +81,20 @@ export default {
       href: v,
     }));
 
+    const scripts = [
+      {
+        charset: "utf-8",
+        src: "//cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.min.js",
+        defer: true,
+      },
+    ];
+
+    console.log(scripts);
+
     return {
       title: this.title,
       link: styles,
+      script: scripts,
     };
   },
 };
