@@ -49,4 +49,5 @@ export default {
   build: {
     transpile: ['vssue'],
   },
+  target: 'static',
 }
