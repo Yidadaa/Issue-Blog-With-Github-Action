@@ -46,7 +46,10 @@ export default {
   router: {
     base: config.base || '/'
   },
-  generate: [...routes],
+  generate: {
+    routes,
+    subFolders: false,
+  },
   plugins: [
     { src: '~/plugins/vssue', mode: 'client' }
   ],

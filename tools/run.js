@@ -110,8 +110,6 @@ function processPost(data) {
 function processCategory(rawData) {
   const data = rawData
 
-  const dataPath = path.resolve(__dirname, '../src/.vuepress/data')
-
   const mData = data.map(m => {
     return {
       id: m.number,
