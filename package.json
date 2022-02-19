@@ -1,5 +1,5 @@
 {
-  "name": "issue-blog-test",
+  "name": "issue-blog",
   "scripts": {
     "dev": "nuxt",
     "nuxt-build": "nuxt build",

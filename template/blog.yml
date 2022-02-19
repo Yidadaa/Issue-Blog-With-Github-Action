@@ -3,7 +3,7 @@ name: Blog
 on:
   push:
     branches:
-      - 2.0
+      - main
   issues:
     types:
       [

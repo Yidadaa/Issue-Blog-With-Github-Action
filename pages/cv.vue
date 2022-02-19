@@ -2,7 +2,7 @@
   <div class="cv">
     <Header />
     <div class="page cv-content">
-      <div class="cv-header cv-two-column cv-section">
+      <div class="cv-header cv-two-column cv-section" v-if="!!header">
         <div class="cv-info">
           <div class="cv-author">{{ header.author }}</div>
           <div
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="cv-two-column">
+      <div class="cv-two-column" v-if="!!education">
         <div class="cv-section education cv-left-column">
           <div class="cv-section-title">{{ education.name }}</div>
           <div v-for="(edu, eindex) in education.content" v-bind:key="eindex">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="cv-section honor cv-right-column">
+        <div class="cv-section honor cv-right-column" v-if="!!honor">
           <div class="cv-section-title">{{ honor.name }}</div>
           <div
             class="cv-two-column"
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="cv-section experience">
+      <div class="cv-section experience" v-if="!!experience">
         <div class="cv-section-title">{{ experience.name }}</div>
         <ul class="cv-experience-list">
           <li
