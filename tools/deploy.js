@@ -46,6 +46,13 @@ async function main() {
     console.log('[git] clone done')
     const repoPath = path.resolve(tmpPath, repo)
     // delete old files and copy new file
+    // remove all old files
+    shell.ls(repoPath).forEach(v => {
+      if (!v.endsWith('.github')) {
+        console.log('[rm] ', v)
+      }
+    })
+    return;
     shell.ls(distPath).forEach(v => {
       let gitFile = path.resolve(repoPath, v)
       if (fs.existsSync(gitFile)) {
