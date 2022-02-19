@@ -1,33 +1,21 @@
 /*!
-  * vue-router v3.5.1
-  * (c) 2021 Evan You
-  * @license MIT
-  */
-
-/*!
- * Vue.js v2.6.12
- * (c) 2014-2020 Evan You
- * Released under the MIT License.
- */
-
-/*!
  * vssue - A vue-powered issue-based comment plugin
  *
- * @version v1.4.7
+ * @version v1.4.8
  * @link https://vssue.js.org
  * @license MIT
  * @copyright 2018-2021 meteorlxy
  */
 
 /*!
- * vue-client-only v2.0.0
- * (c) 2019-present egoist <0x142857@gmail.com>
+ * vue-client-only v0.0.0-semantic-release
+ * (c) 2021-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
 
 /*!
- * vue-i18n v8.22.4 
- * (c) 2021 kazuya kawaguchi
+ * vue-i18n v8.27.0 
+ * (c) 2022 kazuya kawaguchi
  * Released under the MIT License.
  */
 
@@ -57,3 +45,16 @@ and limitations under the License.
   * (c) 2015-present Evan You
   * @license MIT
   */
+
+
+/*!
+  * vue-router v3.5.3
+  * (c) 2021 Evan You
+  * @license MIT
+  */
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
+ */
