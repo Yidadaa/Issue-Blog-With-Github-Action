@@ -12,7 +12,7 @@
     "@actions/github": "^2.1.0",
     "cross-env": "6.0.0",
     "shelljs": "^0.8.5",
-    "simple-git": "^1.131.0"
+    "simple-git": "^3.3.0"
   },
   "scripts": {
     "dev": "vuepress dev ./src",
