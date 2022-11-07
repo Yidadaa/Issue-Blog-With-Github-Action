@@ -205,6 +205,7 @@ table
   margin 1rem 0
   display: block
   overflow-x: auto
+  white-space: nowrap
 
 tr
   border-top 1px solid #dfe2e5
