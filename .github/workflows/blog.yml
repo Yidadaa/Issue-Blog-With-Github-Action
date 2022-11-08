@@ -5,25 +5,36 @@ on:
     branches:
       - source
   issues:
-    types: [opened, closed, edited, milestoned, labeled, unlabeled, reopened, demilestoned]
+    types:
+      [
+        opened,
+        closed,
+        edited,
+        milestoned,
+        labeled,
+        unlabeled,
+        reopened,
+        demilestoned,
+      ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Download Issue and Publish
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        npm install vuepress
-        npm install
-        npm run action
-        npm run build
-        npm run deploy
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - uses: actions/checkout@v2
+      - name: Download Issue and Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pnpm 
+          pnpm run action
+          pnpm run build
+          pnpm deploy

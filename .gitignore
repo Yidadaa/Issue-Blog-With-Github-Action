@@ -7,3 +7,5 @@ issues.json
 
 tmp
 .idea
+
+yarn-error.log

@@ -4,23 +4,24 @@
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-task-checkbox": "^1.0.6",
-    "medium-zoom": "^1.0.5",
-    "vue": "^2.6.11",
-    "vue-server-renderer": "^2.6.11"
+    "medium-zoom": "^1.0.6",
+    "vue": "^2.7.13",
+    "vue-server-renderer": "^2.7.13",
+    "vuepress": "^1.9.7"
   },
   "devDependencies": {
-    "@actions/github": "^2.1.0",
+    "@actions/github": "^2.2.0",
     "cross-env": "6.0.0",
     "shelljs": "^0.8.5",
-    "simple-git": "^3.5.0"
+    "simple-git": "^3.14.1"
   },
   "scripts": {
-    "dev": "vuepress dev ./src",
-    "build": "vuepress build ./src --dest ./dist",
+    "dev": "vuepress dev ./src ",
+    "build": "vuepress build ./src --dest ./dist ",
     "local": "cross-env NODE_ENV=local node ./tools/run.js",
     "action": "cross-env NODE_ENV=action node ./tools/run.js",
     "push": "cross-env NODE_ENV=local node ./tools/deploy.js",
     "deploy": "cross-env NODE_ENV=action node ./tools/deploy.js",
-    "test-env": "cross-env custom={\\\"base\\\":\\\"/\\\"} vuepress dev ./src"
+    "test-env": "cross-env custom={\\\"base\\\":\\\"/\\\"} vuepress dev ./src "
   }
 }
