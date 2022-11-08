@@ -34,7 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pnpm 
-          pnpm run action
-          pnpm run build
+          pnpm i
+          pnpm action
+          pnpm build
           pnpm deploy
