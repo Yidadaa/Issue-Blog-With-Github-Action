@@ -17,9 +17,10 @@
   },
   "scripts": {
     "dev": "vuepress dev ./src ",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider; vuepress build ./src --dest ./dist ",
+    "build": "vuepress build ./src --dest ./dist ",
     "local": "cross-env NODE_ENV=local node ./tools/run.js",
     "action": "cross-env NODE_ENV=action node ./tools/run.js",
+    "action:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider pnpm run build",
     "push": "cross-env NODE_ENV=local node ./tools/deploy.js",
     "deploy": "cross-env NODE_ENV=action node ./tools/deploy.js",
     "test-env": "cross-env custom={\\\"base\\\":\\\"/\\\"} vuepress dev ./src "
