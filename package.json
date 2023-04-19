@@ -4,16 +4,16 @@
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-task-checkbox": "^1.0.6",
-    "medium-zoom": "^1.0.6",
-    "vue": "^2.7.13",
-    "vue-server-renderer": "^2.7.13",
-    "vuepress": "^1.9.7"
+    "medium-zoom": "^1.0.8",
+    "vue": "^2.7.14",
+    "vue-server-renderer": "^2.7.14",
+    "vuepress": "^1.9.9"
   },
   "devDependencies": {
-    "@actions/github": "^2.2.0",
-    "cross-env": "6.0.0",
+    "@actions/github": "^5.1.1",
+    "cross-env": "7.0.3",
     "shelljs": "^0.8.5",
-    "simple-git": "^3.14.1"
+    "simple-git": "^3.17.0"
   },
   "scripts": {
     "dev": "vuepress dev ./src ",
