@@ -5,7 +5,17 @@ on:
     branches:
       - master
   issues:
-    types: [opened, closed, edited, milestoned, labeled, unlabeled, reopened, demilestoned]
+    types:
+      [
+        opened,
+        closed,
+        edited,
+        milestoned,
+        labeled,
+        unlabeled,
+        reopened,
+        demilestoned,
+      ]
 
 jobs:
   build:
@@ -13,10 +23,13 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - uses: actions/checkout@v3
         with:
           repository: Yidadaa/Issue-Blog-With-Github-Action
           ref: source
@@ -26,8 +39,7 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/<your-github-name>/<your-github-name>.github.io/master/.github/workflows/cv.md -O ./src/cv.md
           wget https://raw.githubusercontent.com/<your-github-name>/<your-github-name>.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
-          npm install vuepress
-          npm install
-          npm run action
-          npm run build
-          npm run deploy
+          pnpm i 
+          pnpm action
+          pnpm build
+          pnpm run deploy
