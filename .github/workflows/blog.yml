@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [19.x]
+        node-version: [16.x]
 
     steps:
       - uses: pnpm/action-setup@v2
