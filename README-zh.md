@@ -27,7 +27,7 @@
 本小节所示的安装方法可以满足大多数人的需求，你只需要在你的 `<your-name>.github.io` 仓库中新建三个配置文件，即可开始使用，具体步骤如下：
 ``` bash
 .github
- |- workflow
+ |- workflows
     |- custom.js # 项目配置文件
     |- cv.md # 简历模板配置文件
     |- main.yml # github actions 配置文件
@@ -74,14 +74,14 @@ git push origin -u source
 ```
 
 #### `repoConfig`
-构建出的静态页面推送配置，其中 `repo` 和 `owner` 应与 `vssueConfig` 中保持一致，`pushBranch` 保留为 `master` 即可，`email` 填写为你的 Github 账号绑定的邮箱，用于填写 commit message。
+构建出的静态页面推送配置，其中 `repo` 和 `owner` 应与 `vssueConfig` 中保持一致，`pushBranch` 保留为主分支即可（github之前的默认主分支是 `master`，现在是 `main` ），`email` 填写为你的 Github 账号绑定的邮箱，用于填写 commit message。
 
 如果你不想让其他人发布的 issue 出现在你的主页，可以在 `filterUsers` 字段设置用户 ID 白名单，若设置为空或者不设置，则表示任何人发布的 issue 都会被发布出来。
 ```js
 {
   repo: String, // same as vssueConfig.repo
   owner: String, // same as vssueConfig.owner
-  pushBranch: String, // which branch to deploy static pages, default is 'master'
+  pushBranch: String, // which branch to deploy static pages, default is 'master' or 'main'
   email: String, // your email of github account, just for commit message
   filterUsers: Array<String> // filter issues according to github account ids
 }
@@ -167,6 +167,16 @@ yarn run dev
 ## 常见问题
 ### 1. 如果防止别人发布的 issue 出现在我的主页？
 你可以配置 `repoConfig.filterUsers` 字段来设置白名单。
+
+### 2. 更新配置代码时，github action未自动执行？
+
+你可以检查仓库的 `.github/workflows/main.yml` 下 `on->push->branches` 是否是你代码变动的分支。默认该配置为 `master`，
+但是现在 github 的默认分支为 `main`。
+
+### 3. 可以成功执行 github action, 但是仓库代码未更新并添加静态页面文件？
+
+请查看 github action 的日志，确认 GITHUB_TOKEN 是否拥有写的权限，若没有，请参考 [GITHUB_TOKEN官方文档](https://docs.github.com/zh/actions/security-guides/automatic-token-authentication)，在 `.github/workflows/main.yml` 文件中赋予对仓库的读写权限。
+模板 [`./template/main.yml`](./template/main.yml) 默认赋予所有读写权限。
 
 ## 鸣谢
 - 本项目基于 [vuepress](https://vuepress.vuejs.org/) 开发。
