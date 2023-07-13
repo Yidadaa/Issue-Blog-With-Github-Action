@@ -21,6 +21,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions: write-all
+
     strategy:
       matrix:
         node-version: [19.x]

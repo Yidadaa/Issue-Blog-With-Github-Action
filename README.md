@@ -30,7 +30,7 @@ Below are just some of the methods for installing ISSUE BLOG. Do not follow all 
 ### Simple Installation (without Fork)
 ``` bash
 .github
- |- workflow
+ |- workflows
     |- custom.js # site config
     |- cv.md # resume config
     |- main.yml # github actions config
@@ -77,7 +77,7 @@ Config for push repo, here is the example:
 {
   repo: String, // same as vssueConfig.repo
   owner: String, // same as vssueConfig.owner
-  pushBranch: String, // which branch to deploy static pages, default is 'master'
+  pushBranch: String, // which branch to deploy static pages, default is 'master' or 'main'
   email: String, // your email of github account, just for commit message
   filterUsers: Array<String> // filter issues according to github account ids
 }
@@ -153,6 +153,14 @@ You can refer [vuepress doc](https://vuepress.vuejs.org/) for more details.
 ## FAQ
 ### 1. How to prevent others from publishing issues to the site?
 You can set a white-list by setting `repoConfig.filterUsers` to `['Your Github ID', 'Another Friend's ID']`, default setting allows everyone to post a blog to your site.
+
+### 2. When updating the configuration, why GitHub Actions did not automatically run?
+
+You can check the `.github/workflows/main.yml` file in your repository and ensure that the `on->push->branches` section corresponds to the branch where your code changes are made. Default branch was `master`, but now is `main` on GitHub.
+
+### 3. GitHub Actions run successfully, but the repository code is not updated, and static page files are not added?
+
+Please check the logs of your GitHub Actions and verify if the `GITHUB_TOKEN` has write permissions. If it does not, please refer to the [official documentation about GITHUB_TOKEN](https://docs.github.com/zh/actions/security-guides/automatic-token-authentication) and grant read and write permissions to your repository in `.github/workflows/main.yml`. Template file [`./template/main.yml`](./template/main.yml) define read or write access for all of the available scopes.
 
 ## Acknowledgment
 - This project is based on [vuepress](https://vuepress.vuejs.org/).
