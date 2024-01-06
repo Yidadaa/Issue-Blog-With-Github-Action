@@ -18,7 +18,7 @@ let mainConfig = {
     filterUsers: ['LianHua']
   },
 
-  title: "Zhang's Blog",
+  title: "似水年华",
   description: "在这里,我的一切，热爱永不停歇。",
   customDomain: "",
   base: "/",
@@ -56,7 +56,7 @@ let mainConfig = {
     ],
     extraFooters: [
       {
-        title: "ABOUT",
+        title: "关于",
         text: "@ 陕 ICP 备 18000508 号 - 1",
         link: "https://beian.miit.gov.cn/"
       }
