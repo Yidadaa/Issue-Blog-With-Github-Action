@@ -21,7 +21,7 @@ let mainConfig = {
   title: "Zhang's Blog",
   description: "在这里,我的一切，热爱永不停歇。",
   customDomain: "",
-  base: "/lianhua.github.io/",
+  base: "/",
 
   slogan: {
     main: "有逻辑的灵魂，",
@@ -40,7 +40,7 @@ let mainConfig = {
       },
       {
         name: "CV",
-        link: "/lianhua.github.io/cv.html"
+        link: "/cv.html"
       }
     ],
     headTitle: ["暮春早夏的月亮", "原是情人的月亮，不比秋冬是诗人的月亮"],
