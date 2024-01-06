@@ -32,7 +32,7 @@ let mainConfig = {
     nav: [
       {
         name: "首页",
-        link: "/lianhua.github.io"
+        link: "/"
       },
       {
         name: "Github",
