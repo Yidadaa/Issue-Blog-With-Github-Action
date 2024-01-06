@@ -18,8 +18,8 @@ let mainConfig = {
     filterUsers: ['LianHua']
   },
 
-  title: "YiFei Zhang's Blog",
-  description: "在这里了解我的一切，对编程的热爱永不停歇。",
+  title: "Zhang's Blog",
+  description: "在这里,我的一切，热爱永不停歇。",
   customDomain: "",
   base: "/lianhua.github.io/",
 
