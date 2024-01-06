@@ -39,7 +39,7 @@ let mainConfig = {
         link: "https://github.com/LianHua"
       },
       {
-        name: "CV",
+        name: "关于我",
         link: "/cv.html"
       }
     ],
@@ -57,7 +57,7 @@ let mainConfig = {
     extraFooters: [
       {
         title: "ABOUT",
-        text: "@ 蜀 ICP 备 19000509 号 - 1",
+        text: "@ 陕 ICP 备 18000508 号 - 1",
         link: "https://beian.miit.gov.cn/"
       }
     ],

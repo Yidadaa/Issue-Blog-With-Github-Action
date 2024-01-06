@@ -3,14 +3,14 @@ layout: ResumeLayout
 
 content:
   header:
-    author: '张义飞'
+    author: '张连华'
     contact:
       - 邮箱：flynn.zhang@foxmail.com
-      - 主页：blog.simplenaive.cn
-      - Github：github.com/Yidadaa
+      - 主页：lianhua.github.io
+      - Github：github.com/lianhua
     interst: '三维视觉'
     dob: '1997/01/20'
-    city: 'Chengdu, China'
+    city: 'Shannxi, China'
   education:
     name: '教育背景'
     content:
