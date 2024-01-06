@@ -24,8 +24,8 @@ let mainConfig = {
   base: "/",
 
   slogan: {
-    main: "有逻辑的灵魂，",
-    sub: "造就有温度的编码。"
+    main: "见天地",
+    sub: "观众生，寻吾身"
   },
 
   themeConfig: {
