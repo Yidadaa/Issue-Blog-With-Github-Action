@@ -13,7 +13,7 @@ let mainConfig = {
   repoConfig: {
     owner: "LianHua",
     repo: "lianhua.github.io",
-    pushBranch: "main",
+    pushBranch: "master",
     email: "hwaltz@qq.com",
     filterUsers: ['LianHua']
   },
