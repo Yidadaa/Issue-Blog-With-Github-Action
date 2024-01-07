@@ -27,7 +27,7 @@ export default {
 
   mounted() {
     this.nav = this.$themeConfig.nav
-    this.headTitle =  v1.jinrishici.com/all.txt //this.$themeConfig.headTitle
+    this.headTitle = this.$themeConfig.headTitle
   }
 }
 </script>
