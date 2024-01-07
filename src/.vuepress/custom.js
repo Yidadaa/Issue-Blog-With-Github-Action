@@ -63,7 +63,7 @@ let mainConfig = {
         link: "https://beian.miit.gov.cn/"
       }
     ],
-    pageCount: true
+    pageCount: false  //是否在页脚显示 pv、uv 等信息
   },
 
   head: [
