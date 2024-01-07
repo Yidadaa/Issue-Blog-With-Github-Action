@@ -43,7 +43,9 @@ let mainConfig = {
         link: "/cv.html"
       }
     ],
-    headTitle: ["暮春早夏的月亮", "原是情人的月亮，不比秋冬是诗人的月亮"],
+    headTitle: [
+      "暮春早夏的月亮", "原是情人的月亮，不比秋冬是诗人的月亮"
+            ],
     friendLinks: [
       {
         name: "watercow",
