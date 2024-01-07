@@ -24,7 +24,7 @@ let mainConfig = {
   base: "/",
 
   slogan: {
-    main: "见天地",
+    main: https://api.vvhan.com/api/ian //"见天地",
     sub: "观众生，寻吾身"
   },
 
