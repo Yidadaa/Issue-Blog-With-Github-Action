@@ -27,8 +27,7 @@ export default {
 
   mounted() {
     this.nav = this.$themeConfig.nav
-    this.headTitle =  <span id="jinrishici-sentence">正在加载今日诗词....</span>
-<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>//this.$themeConfig.headTitle
+    this.headTitle =  v1.jinrishici.com/all.txt //this.$themeConfig.headTitle
   }
 }
 </script>
