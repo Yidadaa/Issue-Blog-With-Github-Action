@@ -3,10 +3,10 @@
   <Header />
   <div class="page">
     <div class="banner">
-      <div class="slogan">
-        <div>{{$frontmatter.slogan.main}}</div>
-        <div>{{$frontmatter.slogan.sub}}</div>
-      </div>
+     // <div class="slogan">
+       // <div>{{$frontmatter.slogan.main}}</div>
+      //  <div>{{$frontmatter.slogan.sub}}</div>
+     // </div>
       <div class="colors">
         <div class="color"></div>
         <div class="color"></div>
